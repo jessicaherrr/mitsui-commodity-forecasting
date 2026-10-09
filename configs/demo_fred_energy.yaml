@@ -1,0 +1,55 @@
+# DEMO profile: the same research pipeline on a different, public dataset via the GENERIC
+# long-format adapter (no Kaggle-specific code paths).  Data: 5 EIA daily energy spot prices +
+# the Fed broad dollar index from FRED, 2010-2025.  Create it with:
+#     python scripts/fetch_fred_energy.py
+# Targets are generated from configuration: 1- and 5-day forward log returns for every
+# series, plus four energy relative-value return spreads versus WTI (gap 1, as in MITSUI).
+# Row positions: 1300 = 2015-02-19, 3100 = 2022-02-01 (holdout 2022-02 .. 2025-12).
+name: demo_fred_energy
+
+data:
+  adapter: generic
+  path: data/external/fred_energy_long.csv
+  name: fred_energy
+  provenance: "FRED (St. Louis Fed): EIA daily spot prices DCOILWTICO, DCOILBRENTEU, DHHNGSP, DHOILNYH, DGASNYH and Fed H.10 DTWEXBGS, 2010-2025"
+  horizons: [1, 5]
+  gap: 1
+  singles: true
+  pairs:
+    - [BRENT, WTI]
+    - [NYH_HEATING_OIL, WTI]
+    - [NYH_GASOLINE, WTI]
+    - [HENRY_HUB_GAS, WTI]
+
+split:
+  first_train: 130
+  dev_start: 1300
+  holdout_start: 3100
+  refit_every: 126
+
+models:
+  - {name: hist_mean,   type: hist_mean}
+  - {name: momentum_21, type: momentum}
+  - {name: reversal_5,  type: reversal}
+  - name: ridge
+    type: ridge
+    features: all
+    grid: [{alpha: 1.0e+2}, {alpha: 1.0e+3}, {alpha: 1.0e+4}]
+  - name: ridge_own
+    type: ridge
+    features: own
+    grid: [{alpha: 1.0e+2}, {alpha: 1.0e+3}, {alpha: 1.0e+4}]
+  - name: lgbm
+    type: lgbm
+    features: all
+    grid: [{n_estimators: 200, learning_rate: 0.03, num_leaves: 7, min_child_samples: 300}]
+  - name: lstm
+    type: lstm
+    features: all
+    params: {window: 20, hidden: 16, dropout: 0.2, max_epochs: 12, patience: 3, max_samples: 30000, val_len: 126}
+
+evaluation:
+  bootstrap_reps: 500
+
+runtime:
+  max_minutes: 20

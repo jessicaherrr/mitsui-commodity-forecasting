@@ -1,0 +1,92 @@
+02:48:04 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+02:48:05 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+02:48:05 | INFO    | commodity_research.experiments.runner | dataset=mitsui synthetic=False dates=1961 assets=106 targets=424 | dev folds=7 holdout folds=4
+02:48:07 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+02:48:08 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+02:48:09 | INFO    | commodity_research.experiments.runner | hist_mean              dev  params={} score=0.0921 meanIC=0.0269
+02:48:09 | INFO    | commodity_research.experiments.runner | hist_mean              done in 1.9s (selected {})
+02:48:10 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+02:48:12 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+02:48:12 | INFO    | commodity_research.experiments.runner | momentum_21            dev  params={} score=-0.0179 meanIC=-0.0050
+02:48:12 | INFO    | commodity_research.experiments.runner | momentum_21            done in 1.9s (selected {})
+02:48:14 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+02:48:15 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+02:48:15 | INFO    | commodity_research.experiments.runner | reversal_5             dev  params={} score=0.0764 meanIC=0.0220
+02:48:16 | INFO    | commodity_research.experiments.runner | reversal_5             done in 1.9s (selected {})
+02:48:17 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+02:48:19 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+02:48:22 | INFO    | commodity_research.experiments.runner | ridge                  dev  params={'alpha': 1000.0} score=-0.0859 meanIC=-0.0248
+02:48:25 | INFO    | commodity_research.experiments.runner | ridge                  dev  params={'alpha': 100000.0} score=-0.1038 meanIC=-0.0306
+02:48:28 | INFO    | commodity_research.experiments.runner | ridge                  dev  params={'alpha': 1000000.0} score=-0.1299 meanIC=-0.0382
+02:48:32 | INFO    | commodity_research.experiments.runner | ridge                  done in 14.7s (selected {'alpha': 1000.0})
+02:48:34 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+02:48:35 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+02:48:37 | INFO    | commodity_research.experiments.runner | ridge_own              dev  params={'alpha': 1000.0} score=-0.1165 meanIC=-0.0308
+02:48:38 | INFO    | commodity_research.experiments.runner | ridge_own              dev  params={'alpha': 100000.0} score=-0.1497 meanIC=-0.0400
+02:48:40 | INFO    | commodity_research.experiments.runner | ridge_own              dev  params={'alpha': 1000000.0} score=-0.1317 meanIC=-0.0376
+02:48:41 | INFO    | commodity_research.experiments.runner | ridge_own              done in 7.4s (selected {'alpha': 1000.0})
+02:48:43 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+02:48:44 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+02:49:14 | INFO    | commodity_research.experiments.runner | lgbm                   dev  params={'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 15, 'min_child_samples': 1000} score=-0.0638 meanIC=-0.0181
+02:49:34 | INFO    | commodity_research.experiments.runner | lgbm                   dev  params={'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 7, 'min_child_samples': 3000} score=-0.0744 meanIC=-0.0219
+02:49:56 | INFO    | commodity_research.experiments.runner | lgbm                   done in 73.1s (selected {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 15, 'min_child_samples': 1000})
+02:49:58 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+02:49:59 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+02:50:22 | INFO    | commodity_research.experiments.runner | lgbm_own               dev  params={'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 15, 'min_child_samples': 1000} score=-0.0704 meanIC=-0.0163
+02:50:37 | INFO    | commodity_research.experiments.runner | lgbm_own               dev  params={'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 7, 'min_child_samples': 3000} score=-0.0827 meanIC=-0.0201
+02:50:53 | INFO    | commodity_research.experiments.runner | lgbm_own               done in 55.6s (selected {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 15, 'min_child_samples': 1000})
+02:50:55 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+02:50:56 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+02:51:45 | INFO    | commodity_research.experiments.runner | lstm                   dev  params={'window': 20, 'hidden': 32, 'dropout': 0.2, 'lr': 0.001, 'batch_size': 512, 'max_epochs': 12, 'patience': 3, 'max_samples': 50000, 'val_len': 126, 'n_seeds': 1} score=-0.0142 meanIC=-0.0041
+02:52:18 | INFO    | commodity_research.experiments.runner | lstm                   done in 83.0s (selected {'window': 20, 'hidden': 32, 'dropout': 0.2, 'lr': 0.001, 'batch_size': 512, 'max_epochs': 12, 'patience': 3, 'max_samples': 50000, 'val_len': 126, 'n_seeds': 1})
+02:52:20 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+02:52:22 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+02:52:30 | INFO    | commodity_research.experiments.runner | ridge_direct_pooled    dev  params={'alpha': 1000.0, 'pooled': True} score=-0.0254 meanIC=-0.0061
+02:52:39 | INFO    | commodity_research.experiments.runner | ridge_direct_pooled    dev  params={'alpha': 100000.0, 'pooled': True} score=-0.0113 meanIC=-0.0027
+02:52:46 | INFO    | commodity_research.experiments.runner | ridge_direct_pooled    done in 25.5s (selected {'alpha': 100000.0, 'pooled': True})
+02:52:48 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+02:52:49 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+02:52:58 | INFO    | commodity_research.experiments.runner | ridge_direct_target    dev  params={'alpha': 100.0, 'pooled': False} score=-0.0337 meanIC=-0.0051
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+02:53:07 | INFO    | commodity_research.experiments.runner | ridge_direct_target    dev  params={'alpha': 1000.0, 'pooled': False} score=-0.0479 meanIC=-0.0077
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+./src/commodity_research/models/base.py:72: RuntimeWarning: Mean of empty slice
+  mu = np.nanmean(z, axis=axis, keepdims=True)
+02:53:13 | INFO    | commodity_research.experiments.runner | ridge_direct_target    done in 25.8s (selected {'alpha': 100.0, 'pooled': False})
+02:53:14 | INFO    | commodity_research.experiments.runner | ensemble equal      static w=[0.333 0.333 0.333]
+02:53:15 | INFO    | commodity_research.experiments.runner | ensemble static_ic  static w=[0.333 0.333 0.333]
+02:53:15 | INFO    | commodity_research.experiments.runner | ensemble regime     static w=[0.333 0.333 0.333]
+02:53:15 | INFO    | commodity_research.experiments.runner | ensemble online     static w=[0.333 0.333 0.333]
+02:53:15 | INFO    | commodity_research.experiments.runner | training finished in 5.2 min -> ./results/fast

@@ -1,0 +1,62 @@
+# FULL profile: same data, targets, holdout and protocol as FAST, with
+#   - a faster refit cadence (every 42 dates ~ 2 months instead of 126),
+#   - larger hyper-parameter grids (selected on the development period only),
+#   - a 3-seed LSTM ensemble with a larger training sample,
+#   - 1000 bootstrap replications.
+# Specified before any holdout result was inspected (see docs/IMPLEMENTATION_PROGRESS.md).
+# Expected CPU wall time: ~45-60 minutes on a 10-core laptop.
+name: full
+
+split:
+  refit_every: 42
+
+models:
+  - {name: hist_mean,   type: hist_mean}
+  - {name: momentum_21, type: momentum}
+  - {name: reversal_5,  type: reversal}
+  - name: ridge
+    type: ridge
+    features: all
+    grid: [{alpha: 1.0e+2}, {alpha: 1.0e+3}, {alpha: 1.0e+4}, {alpha: 1.0e+5}, {alpha: 1.0e+6}]
+  - name: ridge_own
+    type: ridge
+    features: own
+    grid: [{alpha: 1.0e+2}, {alpha: 1.0e+3}, {alpha: 1.0e+4}, {alpha: 1.0e+5}, {alpha: 1.0e+6}]
+  - name: ridge_rawlabel
+    type: ridge
+    features: all
+    grid: [{alpha: 1.0e+3, label_mode: raw}, {alpha: 1.0e+5, label_mode: raw}, {alpha: 1.0e+6, label_mode: raw}]
+  - name: lgbm
+    type: lgbm
+    features: all
+    grid:
+      - {n_estimators: 200, learning_rate: 0.03, num_leaves: 15, min_child_samples: 1000}
+      - {n_estimators: 200, learning_rate: 0.03, num_leaves: 7,  min_child_samples: 3000}
+      - {n_estimators: 300, learning_rate: 0.02, num_leaves: 31, min_child_samples: 2000}
+  - name: lgbm_own
+    type: lgbm
+    features: own
+    grid:
+      - {n_estimators: 200, learning_rate: 0.03, num_leaves: 15, min_child_samples: 1000}
+      - {n_estimators: 200, learning_rate: 0.03, num_leaves: 7,  min_child_samples: 3000}
+      - {n_estimators: 300, learning_rate: 0.02, num_leaves: 31, min_child_samples: 2000}
+  - name: lstm
+    type: lstm
+    features: all
+    optional: true
+    params: {window: 20, hidden: 32, dropout: 0.2, lr: 1.0e-3, batch_size: 512, max_epochs: 15, patience: 3,
+             max_samples: 120000, val_len: 126, n_seeds: 3}
+  - name: ridge_direct_pooled
+    type: direct_ridge
+    features: own
+    grid: [{alpha: 1.0e+3, pooled: true}, {alpha: 1.0e+4, pooled: true}, {alpha: 1.0e+5, pooled: true}]
+  - name: ridge_direct_target
+    type: direct_ridge
+    features: own
+    grid: [{alpha: 1.0e+1, pooled: false}, {alpha: 1.0e+2, pooled: false}, {alpha: 1.0e+3, pooled: false}]
+
+evaluation:
+  bootstrap_reps: 1000
+
+runtime:
+  max_minutes: 120

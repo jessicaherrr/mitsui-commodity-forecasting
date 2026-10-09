@@ -1,0 +1,227 @@
+{
+  "structure": {
+    "n_dates": 1961,
+    "date_id_min": 0,
+    "date_id_max": 1960,
+    "date_id_gap_free": true,
+    "n_raw_columns": 557,
+    "markets": {
+      "LME": {
+        "raw_columns": 4,
+        "close_series": 4,
+        "dates_with_all_closes_missing": 51,
+        "mean_missing_frac_close": 0.026
+      },
+      "JPX": {
+        "raw_columns": 40,
+        "close_series": 6,
+        "dates_with_all_closes_missing": 116,
+        "mean_missing_frac_close": 0.0592
+      },
+      "US": {
+        "raw_columns": 475,
+        "close_series": 95,
+        "dates_with_all_closes_missing": 67,
+        "mean_missing_frac_close": 0.0432
+      },
+      "FX": {
+        "raw_columns": 38,
+        "close_series": 38,
+        "dates_with_all_closes_missing": 0,
+        "mean_missing_frac_close": 0.0
+      }
+    },
+    "n_targets": 424,
+    "horizons": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "targets_per_horizon": {
+      "1": 106,
+      "2": 106,
+      "3": 106,
+      "4": 106
+    },
+    "single_asset_targets": 4,
+    "pair_targets": 420,
+    "distinct_assets_in_targets": 106,
+    "target_categories": {
+      "COMMOD-EQ": 268,
+      "COMMOD-FX": 132,
+      "COMMOD-COMMOD": 20,
+      "single:EQ": 2,
+      "single:FX": 2
+    }
+  },
+  "label_verification": {
+    "formula": "target(t) = log(P_A[t+1+lag]/P_A[t+1]) - log(P_B[t+1+lag]/P_B[t+1])  (single: first term only)",
+    "max_abs_error_all_targets": 9.936084974879883e-07,
+    "cells_compared": 742640,
+    "official_only_cells": 1421,
+    "official_only_cells_beyond_sample_end": 1421,
+    "recomputed_only_cells": 0
+  },
+  "alternative_interpretations": [
+    {
+      "target": "target_0",
+      "pair": "US_Stock_VT_adj_close",
+      "lag": 1,
+      "corr_correct_formula": 0.9999999999999999,
+      "corr_no_gap_log_return": -0.13296395839476421,
+      "corr_price_spread_change": 0.9687925102997526,
+      "corr_legacy_price_level_target": -0.007802029258357609
+    },
+    {
+      "target": "target_1",
+      "pair": "LME_PB_Close - US_Stock_VT_adj_close",
+      "lag": 1,
+      "corr_correct_formula": 0.9999999999999996,
+      "corr_no_gap_log_return": -0.1806437010514666,
+      "corr_price_spread_change": 0.7301111311996249,
+      "corr_legacy_price_level_target": -0.045940875352695414
+    },
+    {
+      "target": "target_2",
+      "pair": "LME_CA_Close - LME_ZS_Close",
+      "lag": 1,
+      "corr_correct_formula": 1.0,
+      "corr_no_gap_log_return": -0.08207706259199563,
+      "corr_price_spread_change": 0.631411976351332,
+      "corr_legacy_price_level_target": -0.04613828262294201
+    },
+    {
+      "target": "target_106",
+      "pair": "US_Stock_VXUS_adj_close",
+      "lag": 2,
+      "corr_correct_formula": 1.0,
+      "corr_no_gap_log_return": 0.5039765493204756,
+      "corr_price_spread_change": 0.9851808660451272,
+      "corr_legacy_price_level_target": 0.03504280651935941
+    },
+    {
+      "target": "target_107",
+      "pair": "LME_ZS_Close - US_Stock_VXUS_adj_close",
+      "lag": 2,
+      "corr_correct_formula": 0.9999999999999997,
+      "corr_no_gap_log_return": 0.43759510607135554,
+      "corr_price_spread_change": 0.7739325516156852,
+      "corr_legacy_price_level_target": 0.03444231071296148
+    },
+    {
+      "target": "target_318",
+      "pair": "FX_NOKEUR",
+      "lag": 4,
+      "corr_correct_formula": 0.9999999999999997,
+      "corr_no_gap_log_return": 0.723732743218676,
+      "corr_price_spread_change": 0.9974723040206519,
+      "corr_legacy_price_level_target": 0.04484377847695776
+    },
+    {
+      "target": "target_423",
+      "pair": "LME_CA_Close - US_Stock_CCJ_adj_close",
+      "lag": 4,
+      "corr_correct_formula": 1.0,
+      "corr_no_gap_log_return": 0.7081953059874079,
+      "corr_price_spread_change": 0.08073328244925866,
+      "corr_legacy_price_level_target": -0.03289748583390158
+    }
+  ],
+  "information_timing": {
+    "decision": "forecast for date t is formed at the close of t using data with date_id <= t",
+    "label_window": "prices at t+1 and t+1+lag (the close-to-close return from t to t+1 is NOT part of the label)",
+    "label_observable_at": "close of t+1+lag (lag 1..4 -> 2..5 dates after the decision date)",
+    "training_rule": "a model refitted at the close of tau may use labels with t <= tau - 1 - lag",
+    "label_nan_fraction_by_horizon": {
+      "1": 0.1012,
+      "2": 0.1062,
+      "3": 0.1074,
+      "4": 0.1057
+    }
+  },
+  "test_csv": {
+    "rows": 134,
+    "date_id_range": [
+      1827,
+      1960
+    ],
+    "rows_overlapping_train": 134,
+    "identical_to_train_rows": true,
+    "extra_columns": [
+      "is_scored"
+    ],
+    "is_scored_counts": {
+      "True": 90,
+      "False": 44
+    },
+    "has_labels": false,
+    "conclusion": "test.csv is the competition API mock: features already in train.csv, no labels -> not an independent test set"
+  },
+  "data_quality": {
+    "nonpositive_prices": 0,
+    "sparse_assets_lt50pct": [
+      "US_Stock_GOLD_adj_close"
+    ],
+    "daily_abs_log_returns_gt_0.25": 51,
+    "largest_moves": [
+      {
+        "date_id": 566,
+        "asset": "US_Stock_TRGP_adj_close",
+        "abs_log_return": 0.753
+      },
+      {
+        "date_id": 566,
+        "asset": "US_Stock_CVE_adj_close",
+        "abs_log_return": 0.744
+      },
+      {
+        "date_id": 566,
+        "asset": "US_Stock_OXY_adj_close",
+        "abs_log_return": 0.734
+      },
+      {
+        "date_id": 573,
+        "asset": "US_Stock_NUGT_adj_close",
+        "abs_log_return": 0.68
+      },
+      {
+        "date_id": 570,
+        "asset": "US_Stock_NUGT_adj_close",
+        "abs_log_return": 0.623
+      },
+      {
+        "date_id": 1090,
+        "asset": "US_Stock_YINN_adj_close",
+        "abs_log_return": 0.499
+      },
+      {
+        "date_id": 566,
+        "asset": "US_Stock_OKE_adj_close",
+        "abs_log_return": 0.474
+      },
+      {
+        "date_id": 566,
+        "asset": "US_Stock_HAL_adj_close",
+        "abs_log_return": 0.472
+      }
+    ],
+    "note": "largest moves cluster around date_id ~566-586 (consistent with March 2020) and are kept as genuine market moves"
+  },
+  "legacy_static_checks": {
+    "main_uses_synthetic_generator": true,
+    "main_reads_train_csv": false,
+    "main_reads_train_labels_csv": false,
+    "target_built_as_price_difference": true,
+    "label_shift_applied_again": true
+  },
+  "headline": {
+    "dates": 1961,
+    "targets": 424,
+    "assets_in_targets": 106,
+    "label_formula_verified_max_abs_error": 9.936084974879883e-07,
+    "test_csv_identical_to_train_tail": true,
+    "legacy_uses_synthetic_data": true,
+    "report": "./results/audit/data_audit.json"
+  }
+}

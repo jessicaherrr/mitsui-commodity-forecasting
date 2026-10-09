@@ -1,0 +1,65 @@
+# VOL profile: volatility research (diagnostics, volatility-forecast evaluation, and return
+# forecasting with volatility features). Same data, split and protocol as FAST/FULL.
+name: vol
+
+volatility:
+  models: [const, hv21, hv63, ewma, garch_n, garch_t, gjr_t]
+  refit_every: 21     # GARCH re-estimation cadence (trading days), expanding window
+  min_obs: 250        # first estimation needs ~1 year of returns
+  subperiods:         # descriptive sub-period diagnostics (row positions; inferred calendar)
+    pre-COVID: [130, 540]
+    COVID window: [540, 700]
+    post-crash (development): [700, 1461]
+
+# ---------------------------------------------------------------- Part III arms
+# Pre-registered in docs/VOLATILITY_PREREGISTRATION.md. LightGBM settings fixed a priori
+# (defaults in models/target_models.py: 7 leaves, min_child 2000, 200 trees, lr 0.03).
+split:
+  refit_every: 126
+
+ensembles: []
+
+models:
+  - {name: hist_mean,   type: hist_mean}
+  - {name: momentum_21, type: momentum}
+  - {name: reversal_5,  type: reversal}
+  # predictor channel (EWMA label scaling in every arm)
+  - {name: tgbm_R,     type: target_pooled, params: {groups: [R]}}
+  - {name: tgbm_RV,    type: target_pooled, params: {groups: [R, Vn, Vs]}}
+  - {name: tgbm_RVs,   type: target_pooled, params: {groups: [R, Vs]}}
+  - {name: tgbm_RC,    type: target_pooled, params: {groups: [R, C]}}
+  - {name: tgbm_RVC,   type: target_pooled, params: {groups: [R, Vn, Vs, C]}}
+  # normaliser channel (return/rank features only)
+  - {name: tgbm_R_garch, type: target_pooled, params: {groups: [R], scale: garch_t}}
+  - {name: tgbm_R_none,  type: target_pooled, params: {groups: [R], scale: none}}
+  # linear benchmark (alpha selected on development)
+  - name: tridge_R
+    type: target_pooled
+    grid: [{groups: [R], estimator: ridge, alpha: 1.0e+3}, {groups: [R], estimator: ridge, alpha: 1.0e+4}, {groups: [R], estimator: ridge, alpha: 1.0e+5}]
+  - name: tridge_RV
+    type: target_pooled
+    grid: [{groups: [R, Vn, Vs], estimator: ridge, alpha: 1.0e+3}, {groups: [R, Vn, Vs], estimator: ridge, alpha: 1.0e+4}, {groups: [R, Vn, Vs], estimator: ridge, alpha: 1.0e+5}]
+  - name: tridge_RC
+    type: target_pooled
+    grid: [{groups: [R, C], estimator: ridge, alpha: 1.0e+3}, {groups: [R, C], estimator: ridge, alpha: 1.0e+4}, {groups: [R, C], estimator: ridge, alpha: 1.0e+5}]
+  - name: tridge_RVC
+    type: target_pooled
+    grid: [{groups: [R, Vn, Vs, C], estimator: ridge, alpha: 1.0e+3}, {groups: [R, Vn, Vs, C], estimator: ridge, alpha: 1.0e+4}, {groups: [R, Vn, Vs, C], estimator: ridge, alpha: 1.0e+5}]
+
+evaluation:
+  bootstrap_reps: 1000
+  paired:
+    - [R1 vol features (no cross), tgbm_RV, tgbm_R]
+    - [R2 vol features (with cross), tgbm_RVC, tgbm_RC]
+    - [R3 GARCH vs EWMA normaliser, tgbm_R_garch, tgbm_R]
+    - [R4 EWMA normaliser vs none, tgbm_R, tgbm_R_none]
+    - [R5 vol state only, tgbm_RVs, tgbm_R]
+    - [R5 vol normalisation beyond state, tgbm_RV, tgbm_RVs]
+    - [R8 ridge vol features (no cross), tridge_RV, tridge_R]
+    - [R8 ridge vol features (with cross), tridge_RVC, tridge_RC]
+    - [context cross-asset (LGBM), tgbm_RC, tgbm_R]
+    - [context target-level vs 1yr mean, tgbm_R, hist_mean]
+    - [context LGBM vs ridge (R), tgbm_R, tridge_R]
+
+runtime:
+  max_minutes: 60

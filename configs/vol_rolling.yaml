@@ -1,0 +1,27 @@
+# VOL_ROLLING profile: robustness (b) - rolling 750-date training window (refit every 126).
+name: vol_rolling
+
+volatility:
+  models: [const, hv21, hv63, ewma, garch_n, garch_t, gjr_t]
+  refit_every: 21
+  min_obs: 250
+
+split:
+  refit_every: 126
+  window: 750
+
+ensembles: []
+
+models:
+  - {name: tgbm_R,   type: target_pooled, params: {groups: [R]}}
+  - {name: tgbm_RV,  type: target_pooled, params: {groups: [R, Vn, Vs]}}
+  - {name: tgbm_RVs, type: target_pooled, params: {groups: [R, Vs]}}
+
+evaluation:
+  bootstrap_reps: 1000
+  paired:
+    - [R1 vol features (no cross), tgbm_RV, tgbm_R]
+    - [R5 vol state only, tgbm_RVs, tgbm_R]
+
+runtime:
+  max_minutes: 60

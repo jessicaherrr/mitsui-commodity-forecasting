@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+.pytest_cache/
+build/
+dist/
+
+# Raw competition data: Kaggle competition rules restrict redistribution, so the MITSUI
+# csv files are never committed. Download instructions: data/raw/mitsui/README.md
+data/raw/mitsui/*.csv
+data/processed/*
+!data/processed/.gitkeep
+# Public-domain FRED/EIA/Fed series are committed; other external files are not.
+data/external/*
+!data/external/README.md
+!data/external/fred_energy_long*.csv
+
+# Derived intermediates that can be regenerated (metrics, figures and reports ARE tracked).
+# Predictions are per-date forecasts for the licensed MITSUI targets; the cache is the
+# volatility engine output. Both are rebuilt by `train` / `vol-all`.
+results/*/predictions/
+results/*/cache/
+
+# OS / editors
+.DS_Store
+.idea/
+.vscode/

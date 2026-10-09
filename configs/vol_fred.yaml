@@ -1,0 +1,60 @@
+# VOL_FRED profile: independent replication of the volatility study on public data via the
+# generic adapter. 5 EIA daily energy spot prices + Fed broad USD index (FRED), 2010-01 .. 2026-10.
+# Create the data with:
+#     python scripts/fetch_fred_energy.py --end 2026-12-31 --out data/external/fred_energy_long_2026.csv
+# Row positions: 1300 = 2015-02-19; 4112 = 2026-01-02. The 2026 rows (197 dates) were never
+# examined before the pre-registration (docs/VOLATILITY_PREREGISTRATION.md) -> fresh holdout.
+name: vol_fred
+
+data:
+  adapter: generic
+  path: data/external/fred_energy_long_2026.csv
+  name: fred_energy_2026
+  provenance: "FRED (St. Louis Fed): EIA daily spot prices DCOILWTICO, DCOILBRENTEU, DHHNGSP, DHOILNYH, DGASNYH and Fed H.10 DTWEXBGS, 2010-01 to 2026-10"
+  horizons: [1, 5]
+  gap: 1
+  singles: true
+  pairs:
+    - [BRENT, WTI]
+    - [NYH_HEATING_OIL, WTI]
+    - [NYH_GASOLINE, WTI]
+    - [HENRY_HUB_GAS, WTI]
+
+split:
+  first_train: 130
+  dev_start: 1300
+  holdout_start: 4112
+  refit_every: 126
+
+volatility:
+  models: [const, hv21, hv63, ewma, garch_n, garch_t, gjr_t]
+  refit_every: 21
+  min_obs: 250
+
+ensembles: []
+
+models:
+  - {name: hist_mean,   type: hist_mean}
+  - {name: momentum_21, type: momentum}
+  - {name: reversal_5,  type: reversal}
+  - {name: tgbm_R,       type: target_pooled, params: {groups: [R]}}
+  - {name: tgbm_RV,      type: target_pooled, params: {groups: [R, Vn, Vs]}}
+  - {name: tgbm_RVs,     type: target_pooled, params: {groups: [R, Vs]}}
+  - {name: tgbm_RC,      type: target_pooled, params: {groups: [R, C]}}
+  - {name: tgbm_RVC,     type: target_pooled, params: {groups: [R, Vn, Vs, C]}}
+  - {name: tgbm_R_garch, type: target_pooled, params: {groups: [R], scale: garch_t}}
+  - {name: tgbm_R_none,  type: target_pooled, params: {groups: [R], scale: none}}
+
+evaluation:
+  bootstrap_reps: 1000
+  paired:
+    - [R1 vol features (no cross), tgbm_RV, tgbm_R]
+    - [R2 vol features (with cross), tgbm_RVC, tgbm_RC]
+    - [R3 GARCH vs EWMA normaliser, tgbm_R_garch, tgbm_R]
+    - [R4 EWMA normaliser vs none, tgbm_R, tgbm_R_none]
+    - [R5 vol state only, tgbm_RVs, tgbm_R]
+    - [context cross-asset (LGBM), tgbm_RC, tgbm_R]
+    - [context target-level vs 1yr mean, tgbm_R, hist_mean]
+
+runtime:
+  max_minutes: 60

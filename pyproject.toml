@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mitsui-commodity-forecasting"
+version = "0.1.0"
+description = "Commodity Forecasting & Cross-Asset Quantitative Research: regime-aware multi-asset return prediction and risk-aware signal analysis"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "pandas>=2.1",
+    "scipy>=1.11",
+    "scikit-learn>=1.4",
+    "lightgbm>=4.0",
+    "torch>=2.2",
+    "matplotlib>=3.8",
+    "pyyaml>=6.0",
+    "arch>=7.0",
+    "statsmodels>=0.14",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0"]
+dashboard = ["streamlit>=1.30"]
+
+[project.scripts]
+commodity-research = "commodity_research.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "realdata: tests that require the MITSUI csv files in data/raw/mitsui",
+    "slow: slower integration tests",
+]
+filterwarnings = ["ignore::DeprecationWarning"]

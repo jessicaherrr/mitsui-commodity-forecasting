@@ -1,0 +1,42 @@
+2026-10-09 09:36:14,217 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 09:36:14,865 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 09:36:14,908 | INFO    | commodity_research.experiments.runner | dataset=mitsui synthetic=False dates=1961 assets=106 targets=424 | dev folds=20 holdout folds=12
+2026-10-09 09:36:15,823 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 09:36:16,419 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 09:36:18,515 | INFO    | commodity_research.features.target_features | target features: 424 targets x 1961 dates x 47 features ({'R': 11, 'Vn': 7, 'Vs': 12, 'C': 17})
+2026-10-09 09:36:48,984 | INFO    | commodity_research.experiments.runner | tgbm_R                 dev  params={'groups': ['R']} score=-0.0171 meanIC=-0.0034
+2026-10-09 09:37:10,754 | INFO    | commodity_research.experiments.runner | tgbm_R                 done in 55.0s (selected {'groups': ['R']})
+2026-10-09 09:37:11,969 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 09:37:12,548 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 09:37:14,549 | INFO    | commodity_research.features.target_features | target features: 424 targets x 1961 dates x 47 features ({'R': 11, 'Vn': 7, 'Vs': 12, 'C': 17})
+2026-10-09 09:37:53,019 | INFO    | commodity_research.experiments.runner | tgbm_RV                dev  params={'groups': ['R', 'Vn', 'Vs']} score=0.0644 meanIC=0.0142
+2026-10-09 09:38:27,164 | INFO    | commodity_research.experiments.runner | tgbm_RV                done in 75.3s (selected {'groups': ['R', 'Vn', 'Vs']})
+2026-10-09 09:38:28,456 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 09:38:29,067 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 09:38:31,238 | INFO    | commodity_research.features.target_features | target features: 424 targets x 1961 dates x 47 features ({'R': 11, 'Vn': 7, 'Vs': 12, 'C': 17})
+2026-10-09 09:39:09,294 | INFO    | commodity_research.experiments.runner | tgbm_RVs               dev  params={'groups': ['R', 'Vs']} score=0.0679 meanIC=0.0151
+2026-10-09 09:39:43,630 | INFO    | commodity_research.experiments.runner | tgbm_RVs               done in 75.3s (selected {'groups': ['R', 'Vs']})
+2026-10-09 09:39:44,979 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 09:39:45,669 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 09:39:47,941 | INFO    | commodity_research.features.target_features | target features: 424 targets x 1961 dates x 47 features ({'R': 11, 'Vn': 7, 'Vs': 12, 'C': 17})
+2026-10-09 09:40:35,887 | INFO    | commodity_research.experiments.runner | tgbm15_R               dev  params={'groups': ['R'], 'lgbm_params': {'num_leaves': 15, 'min_child_samples': 1000}} score=-0.0260 meanIC=-0.0046
+2026-10-09 09:41:16,099 | INFO    | commodity_research.experiments.runner | tgbm15_R               done in 91.3s (selected {'groups': ['R'], 'lgbm_params': {'num_leaves': 15, 'min_child_samples': 1000}})
+2026-10-09 09:41:17,454 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 09:41:18,030 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 09:41:19,958 | INFO    | commodity_research.features.target_features | target features: 424 targets x 1961 dates x 47 features ({'R': 11, 'Vn': 7, 'Vs': 12, 'C': 17})
+2026-10-09 09:42:38,391 | INFO    | commodity_research.experiments.runner | tgbm15_RV              dev  params={'groups': ['R', 'Vn', 'Vs'], 'lgbm_params': {'num_leaves': 15, 'min_child_samples': 1000}} score=0.0751 meanIC=0.0173
+2026-10-09 09:43:54,764 | INFO    | commodity_research.experiments.runner | tgbm15_RV              done in 157.4s (selected {'groups': ['R', 'Vn', 'Vs'], 'lgbm_params': {'num_leaves': 15, 'min_child_samples': 1000}})
+2026-10-09 09:43:56,419 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 09:43:57,255 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 09:44:00,076 | INFO    | commodity_research.features.target_features | target features: 424 targets x 1961 dates x 47 features ({'R': 11, 'Vn': 7, 'Vs': 12, 'C': 17})
+2026-10-09 09:45:21,686 | INFO    | commodity_research.experiments.runner | tgbm15_RVs             dev  params={'groups': ['R', 'Vs'], 'lgbm_params': {'num_leaves': 15, 'min_child_samples': 1000}} score=0.0642 meanIC=0.0148
+2026-10-09 09:46:11,866 | INFO    | commodity_research.experiments.runner | tgbm15_RVs             done in 135.6s (selected {'groups': ['R', 'Vs'], 'lgbm_params': {'num_leaves': 15, 'min_child_samples': 1000}})
+2026-10-09 09:46:12,007 | INFO    | commodity_research.experiments.runner | training finished in 10.0 min -> ./results/vol_robust
+2026-10-09 09:46:13,679 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 09:46:14,251 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 09:46:16,306 | INFO    | commodity_research.features.target_features | target features: 424 targets x 1961 dates x 47 features ({'R': 11, 'Vn': 7, 'Vs': 12, 'C': 17})
+2026-10-09 09:46:21,600 | INFO    | commodity_research.experiments.volatility | Part III analysis (dev_holdout) -> ./results/vol_robust/vol
+2026-10-09 09:55:43,182 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 09:55:43,764 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 09:55:43,844 | WARNING | matplotlib.font_manager | findfont: Failed to find font weight semibold for DejaVu Sans, now using 700.
+2026-10-09 09:55:44,122 | INFO    | commodity_research.experiments.vol_report | volatility report -> ./reports/vol_robust/vol_tables.md

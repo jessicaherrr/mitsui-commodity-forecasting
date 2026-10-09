@@ -1,0 +1,35 @@
+# SMOKE profile: tiny SYNTHETIC dataset, used only by the end-to-end test.
+# Results from this profile are NOT market evidence and are stamped SYNTHETIC in every output.
+name: smoke
+data:
+  adapter: synthetic
+  n_dates: 520
+  n_assets: 8
+  horizons: [1, 2]
+  seed: 7
+
+split:
+  first_train: 130
+  dev_start: 300
+  holdout_start: 420
+  refit_every: 60
+
+models:
+  - {name: hist_mean, type: hist_mean}
+  - {name: reversal_5, type: reversal}
+  - {name: ridge, type: ridge, features: all, grid: [{alpha: 10.0}, {alpha: 1000.0}]}
+  - {name: ridge_own, type: ridge, features: own, grid: [{alpha: 10.0}]}
+  - {name: lgbm, type: lgbm, features: all, params: {n_estimators: 30, num_leaves: 7, min_child_samples: 50}}
+  - name: lstm
+    type: lstm
+    features: all
+    params: {window: 5, hidden: 8, max_epochs: 2, max_samples: 3000, val_len: 40, batch_size: 256}
+  - {name: ridge_direct_pooled, type: direct_ridge, features: own, params: {alpha: 100.0, pooled: true}}
+
+evaluation:
+  bootstrap_reps: 50
+
+runtime:
+  isolate_models: false
+  n_jobs: 1
+  max_minutes: 10

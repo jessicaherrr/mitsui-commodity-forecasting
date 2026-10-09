@@ -1,0 +1,51 @@
+# Shared defaults. Profiles (fast.yaml, full.yaml, ...) deep-merge over this file.
+seed: 42
+output_root: results
+
+data:
+  adapter: mitsui
+  path: data/raw/mitsui
+
+features:
+  ffill_limit: 5        # max rows a price is carried forward (past values only)
+  ewma_lambda: 0.94     # RiskMetrics-style EWMA volatility decay
+
+# Row positions (MITSUI date_id). Inferred calendar: ~2018-01 .. ~2025-06, ~260 rows/year.
+split:
+  first_train: 130      # feature warm-up: earliest decision date used for training
+  dev_start: 630        # first out-of-sample date of the development walk-forward
+  holdout_start: 1461   # FINAL HOLDOUT = decision dates 1461..1960 (last 500 rows); never used for selection
+  end: null             # null = last row
+  refit_every: 126      # refit cadence (rows)
+  window: null          # null = expanding window; integer = rolling window length
+
+feature_sets:
+  all: [own, cross, relative, regime]
+  own: [own]
+
+ensembles:
+  # Primary (pre-specified): the three learned models, four weighting schemes.
+  - prefix: ens
+    members: [ridge, lgbm, lstm]
+    schemes: [equal, static_ic, regime, online]
+    regime_column: vol_regime
+    shrink: 0.5
+    lookback: 126
+  # Secondary: members chosen on the DEVELOPMENT period only (positive dev score).
+  - prefix: ens_best
+    members: dev_positive
+    candidates: [hist_mean, momentum_21, reversal_5, ridge, lgbm, lstm]
+    schemes: [equal, regime]
+    regime_column: vol_regime
+    shrink: 0.5
+
+evaluation:
+  bootstrap_reps: 1000
+  block: 20
+  benchmark: ridge
+  interval_levels: [0.8, 0.9]
+  backtest_costs_bps: [0, 2, 5, 10]
+
+runtime:
+  n_jobs: -1
+  max_minutes: 45

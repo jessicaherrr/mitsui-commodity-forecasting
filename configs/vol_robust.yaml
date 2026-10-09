@@ -1,0 +1,34 @@
+# VOL_ROBUST profile: robustness specifications fixed in the freeze record
+# (docs/VOLATILITY_PREREGISTRATION.md section 8). Same data, targets, split and holdout as VOL.
+name: vol_robust
+
+volatility:
+  models: [const, hv21, hv63, ewma, garch_n, garch_t, gjr_t]
+  refit_every: 21
+  min_obs: 250
+
+split:
+  refit_every: 42
+
+ensembles: []
+
+models:
+  # (a) refit every 42 dates (split.refit_every above)
+  - {name: tgbm_R,   type: target_pooled, params: {groups: [R]}}
+  - {name: tgbm_RV,  type: target_pooled, params: {groups: [R, Vn, Vs]}}
+  - {name: tgbm_RVs, type: target_pooled, params: {groups: [R, Vs]}}
+  # (c) higher-capacity LightGBM
+  - {name: tgbm15_R,   type: target_pooled, params: {groups: [R],         lgbm_params: {num_leaves: 15, min_child_samples: 1000}}}
+  - {name: tgbm15_RV,  type: target_pooled, params: {groups: [R, Vn, Vs], lgbm_params: {num_leaves: 15, min_child_samples: 1000}}}
+  - {name: tgbm15_RVs, type: target_pooled, params: {groups: [R, Vs],     lgbm_params: {num_leaves: 15, min_child_samples: 1000}}}
+
+evaluation:
+  bootstrap_reps: 1000
+  paired:
+    - [R1 vol features (no cross), tgbm_RV, tgbm_R]
+    - [R5 vol state only, tgbm_RVs, tgbm_R]
+    - [R1 high-capacity LGBM, tgbm15_RV, tgbm15_R]
+    - [R5 high-capacity LGBM, tgbm15_RVs, tgbm15_R]
+
+runtime:
+  max_minutes: 60

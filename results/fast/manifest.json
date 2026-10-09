@@ -1,0 +1,1831 @@
+{
+  "profile": "fast",
+  "config_hash": "7a78c51040d0",
+  "seed": 42,
+  "dataset": "mitsui",
+  "is_synthetic": false,
+  "provenance": "Kaggle MITSUI&CO. Commodity Prediction Challenge (2025) training files; date_id is an anonymised trading-date index (calendar dates not provided).",
+  "data_fingerprint": {
+    "train.csv": "6b0cb8794921494c",
+    "train_labels.csv": "65c89598c5d9a45c",
+    "target_pairs.csv": "06de5c4a9babcd0a"
+  },
+  "split": {
+    "first_train": 130,
+    "dev_start": 630,
+    "holdout_start": 1461,
+    "end": 1961,
+    "refit_every": 126,
+    "window": null
+  },
+  "n_dates": 1961,
+  "n_assets": 106,
+  "n_targets": 424,
+  "horizons": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "gap": 1,
+  "feature_names": [
+    "ret_1_z",
+    "ret_1_lag1_z",
+    "mom_5_z",
+    "mom_21_z",
+    "mom_63_z",
+    "mom_126_21_z",
+    "madev_20_z",
+    "madev_60_z",
+    "trend_eff_63",
+    "log_vol_ewma",
+    "log_vol_ratio_21_63",
+    "log_downside_ratio_63",
+    "skew_63",
+    "exkurt_63",
+    "expo_EQ_1d",
+    "expo_USD_1d",
+    "expo_METAL_1d",
+    "expo_GOLD_1d",
+    "expo_RATES_1d",
+    "expo_ENERGY_1d",
+    "beta_home_126",
+    "corr_home_63",
+    "corr_eq_63",
+    "home_expo_5d_z",
+    "log_vol_rel_home",
+    "fac_EQ_5d_z",
+    "fac_USD_5d_z",
+    "fac_METAL_5d_z",
+    "xs_rank_mom_5",
+    "xs_rank_mom_21",
+    "xs_rank_mom_63",
+    "grp_dev_mom_21",
+    "resid_mom_21_z",
+    "xs_rank_vol",
+    "reg_eq_vol_pct",
+    "reg_eq_vol_chg",
+    "reg_eq_trend",
+    "reg_xcorr_63"
+  ],
+  "feature_groups": [
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "relative",
+    "relative",
+    "relative",
+    "relative",
+    "relative",
+    "relative",
+    "regime",
+    "regime",
+    "regime",
+    "regime"
+  ],
+  "models": {
+    "hist_mean": {
+      "status": "ok",
+      "kind": "hist_mean",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {},
+      "grid": [
+        {
+          "params": {},
+          "dev_score": 0.09212648736894717,
+          "dev_mean_ic": 0.02690378476647736,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 0.01
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 0.01
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 0.01
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 0.01
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 0.01
+        }
+      ],
+      "seconds": 2.0
+    },
+    "momentum_21": {
+      "status": "ok",
+      "kind": "momentum",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {},
+      "grid": [
+        {
+          "params": {},
+          "dev_score": -0.017866185130948165,
+          "dev_mean_ic": -0.004996292045986996,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 0.0
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 0.0
+        }
+      ],
+      "seconds": 1.9
+    },
+    "reversal_5": {
+      "status": "ok",
+      "kind": "reversal",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {},
+      "grid": [
+        {
+          "params": {},
+          "dev_score": 0.0764284687839451,
+          "dev_mean_ic": 0.02199324875617062,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 0.0
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 0.0
+        }
+      ],
+      "seconds": 1.9
+    },
+    "ridge": {
+      "status": "ok",
+      "kind": "ridge",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {
+        "alpha": 1000.0
+      },
+      "grid": [
+        {
+          "params": {
+            "alpha": 1000.0
+          },
+          "dev_score": 0.044697240889388666,
+          "dev_mean_ic": 0.011214798427939321,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.21
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 0.25
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 0.31
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 0.37
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 0.45
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 0.53
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 0.63
+            }
+          ]
+        },
+        {
+          "params": {
+            "alpha": 100000.0
+          },
+          "dev_score": 0.01873107613959054,
+          "dev_mean_ic": 0.004896494254027413,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.18
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 0.23
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 0.34
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 0.41
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 0.46
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 0.52
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 0.65
+            }
+          ]
+        },
+        {
+          "params": {
+            "alpha": 1000000.0
+          },
+          "dev_score": -0.031204483315061128,
+          "dev_mean_ic": -0.008024917040419728,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.25
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 0.31
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 0.32
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 0.38
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 0.43
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 0.51
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 0.58
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 0.64
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 0.75
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 0.81
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 0.89
+        }
+      ],
+      "seconds": 13.9
+    },
+    "ridge_own": {
+      "status": "ok",
+      "kind": "ridge",
+      "level": "asset",
+      "features": "own",
+      "selected_params": {
+        "alpha": 100000.0
+      },
+      "grid": [
+        {
+          "params": {
+            "alpha": 1000.0
+          },
+          "dev_score": -0.054712815259666946,
+          "dev_mean_ic": -0.014203643549845105,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.1
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 0.12
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 0.14
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 0.16
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 0.19
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 0.21
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 0.24
+            }
+          ]
+        },
+        {
+          "params": {
+            "alpha": 100000.0
+          },
+          "dev_score": -0.04636056753994432,
+          "dev_mean_ic": -0.01170482897533028,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.09
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 0.11
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 0.13
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 0.16
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 0.19
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 0.21
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 0.24
+            }
+          ]
+        },
+        {
+          "params": {
+            "alpha": 1000000.0
+          },
+          "dev_score": -0.05397079517272204,
+          "dev_mean_ic": -0.013913211942281463,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.09
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 0.11
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 0.14
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 0.16
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 0.18
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 0.21
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 0.25
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 0.24
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 0.28
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 0.34
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 0.36
+        }
+      ],
+      "seconds": 7.1
+    },
+    "ridge_rawlabel": {
+      "status": "ok",
+      "kind": "ridge",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {
+        "alpha": 1000.0,
+        "label_mode": "raw"
+      },
+      "grid": [
+        {
+          "params": {
+            "alpha": 1000.0,
+            "label_mode": "raw"
+          },
+          "dev_score": -0.08591301517139162,
+          "dev_mean_ic": -0.024820419154466884,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.2
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 0.24
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 0.3
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 0.36
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 0.46
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 0.56
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 0.64
+            }
+          ]
+        },
+        {
+          "params": {
+            "alpha": 100000.0,
+            "label_mode": "raw"
+          },
+          "dev_score": -0.10384950898905336,
+          "dev_mean_ic": -0.030560276155875973,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.18
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 0.24
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 0.31
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 0.38
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 0.44
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 0.53
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 0.59
+            }
+          ]
+        },
+        {
+          "params": {
+            "alpha": 1000000.0,
+            "label_mode": "raw"
+          },
+          "dev_score": -0.12986268790777744,
+          "dev_mean_ic": -0.03822299435361641,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.19
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 0.24
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 0.3
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 0.38
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 0.42
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 0.51
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 0.56
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 0.64
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 0.72
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 0.81
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 0.86
+        }
+      ],
+      "seconds": 13.5
+    },
+    "lgbm": {
+      "status": "ok",
+      "kind": "lgbm",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {
+        "n_estimators": 200,
+        "learning_rate": 0.03,
+        "num_leaves": 7,
+        "min_child_samples": 3000
+      },
+      "grid": [
+        {
+          "params": {
+            "n_estimators": 200,
+            "learning_rate": 0.03,
+            "num_leaves": 15,
+            "min_child_samples": 1000
+          },
+          "dev_score": -0.05654022066129781,
+          "dev_mean_ic": -0.012892677996249907,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 4.85
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 5.11
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 5.38
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 5.71
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 6.42
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 6.52
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 6.72
+            }
+          ]
+        },
+        {
+          "params": {
+            "n_estimators": 200,
+            "learning_rate": 0.03,
+            "num_leaves": 7,
+            "min_child_samples": 3000
+          },
+          "dev_score": -0.03737435333395698,
+          "dev_mean_ic": -0.008639715560203496,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 2.96
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 3.16
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 3.53
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 3.76
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 4.07
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 4.4
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 4.68
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 4.88
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 5.27
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 5.56
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 5.9
+        }
+      ],
+      "seconds": 91.0
+    },
+    "lgbm_own": {
+      "status": "ok",
+      "kind": "lgbm",
+      "level": "asset",
+      "features": "own",
+      "selected_params": {
+        "n_estimators": 200,
+        "learning_rate": 0.03,
+        "num_leaves": 7,
+        "min_child_samples": 3000
+      },
+      "grid": [
+        {
+          "params": {
+            "n_estimators": 200,
+            "learning_rate": 0.03,
+            "num_leaves": 15,
+            "min_child_samples": 1000
+          },
+          "dev_score": -0.10172051589424481,
+          "dev_mean_ic": -0.0214679637184332,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 3.47
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 3.89
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 4.11
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 4.28
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 4.41
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 4.66
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 4.77
+            }
+          ]
+        },
+        {
+          "params": {
+            "n_estimators": 200,
+            "learning_rate": 0.03,
+            "num_leaves": 7,
+            "min_child_samples": 3000
+          },
+          "dev_score": -0.08063557306519781,
+          "dev_mean_ic": -0.01761851713286078,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 2.12
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 2.29
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 2.49
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 2.66
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 2.8
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 2.95
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 3.1
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 3.2
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 3.38
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 3.61
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 3.7
+        }
+      ],
+      "seconds": 64.1
+    },
+    "lstm": {
+      "status": "ok",
+      "kind": "lstm",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {
+        "window": 20,
+        "hidden": 32,
+        "dropout": 0.2,
+        "lr": 0.001,
+        "batch_size": 512,
+        "max_epochs": 12,
+        "patience": 3,
+        "max_samples": 50000,
+        "val_len": 126,
+        "n_seeds": 1
+      },
+      "grid": [
+        {
+          "params": {
+            "window": 20,
+            "hidden": 32,
+            "dropout": 0.2,
+            "lr": 0.001,
+            "batch_size": 512,
+            "max_epochs": 12,
+            "patience": 3,
+            "max_samples": 50000,
+            "val_len": 126,
+            "n_seeds": 1
+          },
+          "dev_score": 0.043869690653670176,
+          "dev_mean_ic": 0.010554381054843586,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 6.94,
+              "epochs": [
+                4
+              ]
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 7.77,
+              "epochs": [
+                4
+              ]
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 7.93,
+              "epochs": [
+                4
+              ]
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 8.08,
+              "epochs": [
+                4
+              ]
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 10.12,
+              "epochs": [
+                5
+              ]
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 8.56,
+              "epochs": [
+                4
+              ]
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 10.96,
+              "epochs": [
+                5
+              ]
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 9.05,
+          "epochs": [
+            4
+          ]
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 9.37,
+          "epochs": [
+            4
+          ]
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 11.29,
+          "epochs": [
+            5
+          ]
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 10.9,
+          "epochs": [
+            5
+          ]
+        }
+      ],
+      "seconds": 103.8
+    },
+    "ridge_direct_pooled": {
+      "status": "ok",
+      "kind": "direct_ridge",
+      "level": "target",
+      "features": "own",
+      "selected_params": {
+        "alpha": 100000.0,
+        "pooled": true
+      },
+      "grid": [
+        {
+          "params": {
+            "alpha": 1000.0,
+            "pooled": true
+          },
+          "dev_score": -0.024803027917239297,
+          "dev_mean_ic": -0.005916281731027624,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.96
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 1.03
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 1.1
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 1.16
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 1.27
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 1.33
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 1.39
+            }
+          ]
+        },
+        {
+          "params": {
+            "alpha": 100000.0,
+            "pooled": true
+          },
+          "dev_score": -0.007164908401092188,
+          "dev_mean_ic": -0.0017114214395548258,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.93
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 1.03
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 1.09
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 1.16
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 1.21
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 1.31
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 1.38
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 1.4
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 1.49
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 1.57
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 1.59
+        }
+      ],
+      "seconds": 24.5
+    },
+    "ridge_direct_target": {
+      "status": "ok",
+      "kind": "direct_ridge",
+      "level": "target",
+      "features": "own",
+      "selected_params": {
+        "alpha": 100.0,
+        "pooled": false
+      },
+      "grid": [
+        {
+          "params": {
+            "alpha": 100.0,
+            "pooled": false
+          },
+          "dev_score": -0.03368821632538597,
+          "dev_mean_ic": -0.005089118244570251,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.97
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 1.05
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 1.12
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 1.16
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 1.24
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 1.33
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 1.4
+            }
+          ]
+        },
+        {
+          "params": {
+            "alpha": 1000.0,
+            "pooled": false
+          },
+          "dev_score": -0.04794212183289975,
+          "dev_mean_ic": -0.007736639943178817,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 0.93
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 1.01
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 1.11
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 1.22
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 1.21
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 1.28
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 1.35
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 1.43
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 1.44
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 1.6
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 1.57
+        }
+      ],
+      "seconds": 24.5
+    },
+    "ens_equal": {
+      "status": "ok",
+      "kind": "ensemble",
+      "level": "asset",
+      "scheme": "equal",
+      "members": [
+        "ridge",
+        "lgbm",
+        "lstm"
+      ],
+      "member_rule": "fixed",
+      "static_weights": [
+        0.4243,
+        0.1667,
+        0.4091
+      ],
+      "regime_weights": {
+        "high": [
+          0.4897,
+          0.1667,
+          0.3436
+        ],
+        "mid": [
+          0.6667,
+          0.1667,
+          0.1667
+        ],
+        "low": [
+          0.1667,
+          0.3722,
+          0.4611
+        ]
+      },
+      "member_scales": [
+        [
+          0.000512303561574152,
+          0.0007998564105019741,
+          0.001162007382700428,
+          0.0014387188525324158
+        ],
+        [
+          0.0005631777470313141,
+          0.0009339601999084019,
+          0.0013565588533228498,
+          0.0017509696579540556
+        ],
+        [
+          0.0008235886420764407,
+          0.0010204051671778443,
+          0.0014335328444020363,
+          0.0022404223793930506
+        ]
+      ],
+      "note": "weights/scales estimated on development dates only; development-period ensemble metrics are in-sample for the weights"
+    },
+    "ens_static_ic": {
+      "status": "ok",
+      "kind": "ensemble",
+      "level": "asset",
+      "scheme": "static_ic",
+      "members": [
+        "ridge",
+        "lgbm",
+        "lstm"
+      ],
+      "member_rule": "fixed",
+      "static_weights": [
+        0.4243,
+        0.1667,
+        0.4091
+      ],
+      "regime_weights": {
+        "high": [
+          0.4897,
+          0.1667,
+          0.3436
+        ],
+        "mid": [
+          0.6667,
+          0.1667,
+          0.1667
+        ],
+        "low": [
+          0.1667,
+          0.3722,
+          0.4611
+        ]
+      },
+      "member_scales": [
+        [
+          0.000512303561574152,
+          0.0007998564105019741,
+          0.001162007382700428,
+          0.0014387188525324158
+        ],
+        [
+          0.0005631777470313141,
+          0.0009339601999084019,
+          0.0013565588533228498,
+          0.0017509696579540556
+        ],
+        [
+          0.0008235886420764407,
+          0.0010204051671778443,
+          0.0014335328444020363,
+          0.0022404223793930506
+        ]
+      ],
+      "note": "weights/scales estimated on development dates only; development-period ensemble metrics are in-sample for the weights"
+    },
+    "ens_regime": {
+      "status": "ok",
+      "kind": "ensemble",
+      "level": "asset",
+      "scheme": "regime",
+      "members": [
+        "ridge",
+        "lgbm",
+        "lstm"
+      ],
+      "member_rule": "fixed",
+      "static_weights": [
+        0.4243,
+        0.1667,
+        0.4091
+      ],
+      "regime_weights": {
+        "high": [
+          0.4897,
+          0.1667,
+          0.3436
+        ],
+        "mid": [
+          0.6667,
+          0.1667,
+          0.1667
+        ],
+        "low": [
+          0.1667,
+          0.3722,
+          0.4611
+        ]
+      },
+      "member_scales": [
+        [
+          0.000512303561574152,
+          0.0007998564105019741,
+          0.001162007382700428,
+          0.0014387188525324158
+        ],
+        [
+          0.0005631777470313141,
+          0.0009339601999084019,
+          0.0013565588533228498,
+          0.0017509696579540556
+        ],
+        [
+          0.0008235886420764407,
+          0.0010204051671778443,
+          0.0014335328444020363,
+          0.0022404223793930506
+        ]
+      ],
+      "note": "weights/scales estimated on development dates only; development-period ensemble metrics are in-sample for the weights"
+    },
+    "ens_online": {
+      "status": "ok",
+      "kind": "ensemble",
+      "level": "asset",
+      "scheme": "online",
+      "members": [
+        "ridge",
+        "lgbm",
+        "lstm"
+      ],
+      "member_rule": "fixed",
+      "static_weights": [
+        0.4243,
+        0.1667,
+        0.4091
+      ],
+      "regime_weights": {
+        "high": [
+          0.4897,
+          0.1667,
+          0.3436
+        ],
+        "mid": [
+          0.6667,
+          0.1667,
+          0.1667
+        ],
+        "low": [
+          0.1667,
+          0.3722,
+          0.4611
+        ]
+      },
+      "member_scales": [
+        [
+          0.000512303561574152,
+          0.0007998564105019741,
+          0.001162007382700428,
+          0.0014387188525324158
+        ],
+        [
+          0.0005631777470313141,
+          0.0009339601999084019,
+          0.0013565588533228498,
+          0.0017509696579540556
+        ],
+        [
+          0.0008235886420764407,
+          0.0010204051671778443,
+          0.0014335328444020363,
+          0.0022404223793930506
+        ]
+      ],
+      "note": "weights/scales estimated on development dates only; development-period ensemble metrics are in-sample for the weights"
+    },
+    "ens_best_equal": {
+      "status": "ok",
+      "kind": "ensemble",
+      "level": "asset",
+      "scheme": "equal",
+      "members": [
+        "hist_mean",
+        "reversal_5",
+        "ridge",
+        "lstm"
+      ],
+      "member_rule": "dev_positive",
+      "static_weights": [
+        0.3154,
+        0.2806,
+        0.2044,
+        0.1997
+      ],
+      "regime_weights": {
+        "high": [
+          0.1317,
+          0.2019,
+          0.394,
+          0.2723
+        ],
+        "mid": [
+          0.4633,
+          0.2864,
+          0.1253,
+          0.125
+        ],
+        "low": [
+          0.1321,
+          0.4321,
+          0.125,
+          0.3108
+        ]
+      },
+      "member_scales": [
+        [
+          0.0012231283007660121,
+          0.0024462566015320242,
+          0.003669384901983919,
+          0.0048925132030640485
+        ],
+        [
+          0.00792156564337408,
+          0.01584313128674816,
+          0.023764696919697285,
+          0.03168626257349632
+        ],
+        [
+          0.000512303561574152,
+          0.0007998564105019741,
+          0.001162007382700428,
+          0.0014387188525324158
+        ],
+        [
+          0.0008235886420764407,
+          0.0010204051671778443,
+          0.0014335328444020363,
+          0.0022404223793930506
+        ]
+      ],
+      "note": "weights/scales estimated on development dates only; development-period ensemble metrics are in-sample for the weights"
+    },
+    "ens_best_regime": {
+      "status": "ok",
+      "kind": "ensemble",
+      "level": "asset",
+      "scheme": "regime",
+      "members": [
+        "hist_mean",
+        "reversal_5",
+        "ridge",
+        "lstm"
+      ],
+      "member_rule": "dev_positive",
+      "static_weights": [
+        0.3154,
+        0.2806,
+        0.2044,
+        0.1997
+      ],
+      "regime_weights": {
+        "high": [
+          0.1317,
+          0.2019,
+          0.394,
+          0.2723
+        ],
+        "mid": [
+          0.4633,
+          0.2864,
+          0.1253,
+          0.125
+        ],
+        "low": [
+          0.1321,
+          0.4321,
+          0.125,
+          0.3108
+        ]
+      },
+      "member_scales": [
+        [
+          0.0012231283007660121,
+          0.0024462566015320242,
+          0.003669384901983919,
+          0.0048925132030640485
+        ],
+        [
+          0.00792156564337408,
+          0.01584313128674816,
+          0.023764696919697285,
+          0.03168626257349632
+        ],
+        [
+          0.000512303561574152,
+          0.0007998564105019741,
+          0.001162007382700428,
+          0.0014387188525324158
+        ],
+        [
+          0.0008235886420764407,
+          0.0010204051671778443,
+          0.0014335328444020363,
+          0.0022404223793930506
+        ]
+      ],
+      "note": "weights/scales estimated on development dates only; development-period ensemble metrics are in-sample for the weights"
+    }
+  },
+  "total_seconds": 372.5
+}

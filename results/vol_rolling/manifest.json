@@ -1,0 +1,366 @@
+{
+  "profile": "vol_rolling",
+  "config_hash": "991e8a6bb359",
+  "seed": 42,
+  "dataset": "mitsui",
+  "is_synthetic": false,
+  "provenance": "Kaggle MITSUI&CO. Commodity Prediction Challenge (2025) training files; date_id is an anonymised trading-date index (calendar dates not provided).",
+  "data_fingerprint": {
+    "train.csv": "6b0cb8794921494c",
+    "train_labels.csv": "65c89598c5d9a45c",
+    "target_pairs.csv": "06de5c4a9babcd0a"
+  },
+  "split": {
+    "first_train": 130,
+    "dev_start": 630,
+    "holdout_start": 1461,
+    "end": 1961,
+    "refit_every": 126,
+    "window": 750
+  },
+  "n_dates": 1961,
+  "n_assets": 106,
+  "n_targets": 424,
+  "horizons": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "gap": 1,
+  "feature_names": [
+    "ret_1_z",
+    "ret_1_lag1_z",
+    "mom_5_z",
+    "mom_21_z",
+    "mom_63_z",
+    "mom_126_21_z",
+    "madev_20_z",
+    "madev_60_z",
+    "trend_eff_63",
+    "log_vol_ewma",
+    "log_vol_ratio_21_63",
+    "log_downside_ratio_63",
+    "skew_63",
+    "exkurt_63",
+    "expo_EQ_1d",
+    "expo_USD_1d",
+    "expo_METAL_1d",
+    "expo_GOLD_1d",
+    "expo_RATES_1d",
+    "expo_ENERGY_1d",
+    "beta_home_126",
+    "corr_home_63",
+    "corr_eq_63",
+    "home_expo_5d_z",
+    "log_vol_rel_home",
+    "fac_EQ_5d_z",
+    "fac_USD_5d_z",
+    "fac_METAL_5d_z",
+    "xs_rank_mom_5",
+    "xs_rank_mom_21",
+    "xs_rank_mom_63",
+    "grp_dev_mom_21",
+    "resid_mom_21_z",
+    "xs_rank_vol",
+    "reg_eq_vol_pct",
+    "reg_eq_vol_chg",
+    "reg_eq_trend",
+    "reg_xcorr_63"
+  ],
+  "feature_groups": [
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "relative",
+    "relative",
+    "relative",
+    "relative",
+    "relative",
+    "relative",
+    "regime",
+    "regime",
+    "regime",
+    "regime"
+  ],
+  "models": {
+    "tgbm_R": {
+      "status": "ok",
+      "kind": "target_pooled",
+      "level": "target",
+      "features": "all",
+      "selected_params": {
+        "groups": [
+          "R"
+        ]
+      },
+      "grid": [
+        {
+          "params": {
+            "groups": [
+              "R"
+            ]
+          },
+          "dev_score": -0.03859864440641258,
+          "dev_mean_ic": -0.007290483177711455,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 3.14
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 1.18
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 1.26
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 1.25
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 1.24
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 1.38
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 1.45
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 1.54
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 1.47
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 1.41
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 1.45
+        }
+      ],
+      "seconds": 17.8
+    },
+    "tgbm_RV": {
+      "status": "ok",
+      "kind": "target_pooled",
+      "level": "target",
+      "features": "all",
+      "selected_params": {
+        "groups": [
+          "R",
+          "Vn",
+          "Vs"
+        ]
+      },
+      "grid": [
+        {
+          "params": {
+            "groups": [
+              "R",
+              "Vn",
+              "Vs"
+            ]
+          },
+          "dev_score": 0.07360963545114768,
+          "dev_mean_ic": 0.016213392470886236,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 3.23
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 1.58
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 2.05
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 2.01
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 2.06
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 2.1
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 2.19
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 2.22
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 2.04
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 2.07
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 2.09
+        }
+      ],
+      "seconds": 24.7
+    },
+    "tgbm_RVs": {
+      "status": "ok",
+      "kind": "target_pooled",
+      "level": "target",
+      "features": "all",
+      "selected_params": {
+        "groups": [
+          "R",
+          "Vs"
+        ]
+      },
+      "grid": [
+        {
+          "params": {
+            "groups": [
+              "R",
+              "Vs"
+            ]
+          },
+          "dev_score": 0.08229154107053256,
+          "dev_mean_ic": 0.018277303542499592,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 126,
+              "seconds": 3.14
+            },
+            {
+              "refit": 756,
+              "n_test": 126,
+              "seconds": 1.55
+            },
+            {
+              "refit": 882,
+              "n_test": 126,
+              "seconds": 1.88
+            },
+            {
+              "refit": 1008,
+              "n_test": 126,
+              "seconds": 1.88
+            },
+            {
+              "refit": 1134,
+              "n_test": 126,
+              "seconds": 2.27
+            },
+            {
+              "refit": 1260,
+              "n_test": 126,
+              "seconds": 1.87
+            },
+            {
+              "refit": 1386,
+              "n_test": 75,
+              "seconds": 1.82
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 126,
+          "seconds": 1.74
+        },
+        {
+          "refit": 1587,
+          "n_test": 126,
+          "seconds": 1.79
+        },
+        {
+          "refit": 1713,
+          "n_test": 126,
+          "seconds": 1.78
+        },
+        {
+          "refit": 1839,
+          "n_test": 122,
+          "seconds": 1.8
+        }
+      ],
+      "seconds": 22.6
+    }
+  },
+  "total_seconds": 68.8
+}

@@ -1,0 +1,1707 @@
+{
+  "profile": "demo_fred_energy",
+  "config_hash": "23c1b764b6d9",
+  "seed": 42,
+  "dataset": "fred_energy",
+  "is_synthetic": false,
+  "provenance": "FRED (St. Louis Fed): EIA daily spot prices DCOILWTICO, DCOILBRENTEU, DHHNGSP, DHOILNYH, DGASNYH and Fed H.10 DTWEXBGS, 2010-2025",
+  "data_fingerprint": {
+    "adapter": "generic"
+  },
+  "split": {
+    "first_train": 130,
+    "dev_start": 1300,
+    "holdout_start": 3100,
+    "end": 4112,
+    "refit_every": 126,
+    "window": null
+  },
+  "n_dates": 4112,
+  "n_assets": 6,
+  "n_targets": 20,
+  "horizons": [
+    1,
+    5
+  ],
+  "gap": 1,
+  "feature_names": [
+    "ret_1_z",
+    "ret_1_lag1_z",
+    "mom_5_z",
+    "mom_21_z",
+    "mom_63_z",
+    "mom_126_21_z",
+    "madev_20_z",
+    "madev_60_z",
+    "trend_eff_63",
+    "log_vol_ewma",
+    "log_vol_ratio_21_63",
+    "log_downside_ratio_63",
+    "skew_63",
+    "exkurt_63",
+    "expo_MKT_1d",
+    "expo_CLS_ENERGY_1d",
+    "beta_home_126",
+    "corr_home_63",
+    "corr_eq_63",
+    "home_expo_5d_z",
+    "log_vol_rel_home",
+    "xs_rank_mom_5",
+    "xs_rank_mom_21",
+    "xs_rank_mom_63",
+    "grp_dev_mom_21",
+    "resid_mom_21_z",
+    "xs_rank_vol",
+    "reg_eq_vol_pct",
+    "reg_eq_vol_chg",
+    "reg_eq_trend",
+    "reg_xcorr_63"
+  ],
+  "feature_groups": [
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "relative",
+    "relative",
+    "relative",
+    "relative",
+    "relative",
+    "relative",
+    "regime",
+    "regime",
+    "regime",
+    "regime"
+  ],
+  "models": {
+    "hist_mean": {
+      "status": "ok",
+      "kind": "hist_mean",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {},
+      "grid": [
+        {
+          "params": {},
+          "dev_score": -0.020091234104571046,
+          "dev_mean_ic": -0.009970213614175173,
+          "fold_log": [
+            {
+              "refit": 1300,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1426,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1552,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1678,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1804,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1930,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2056,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2182,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2308,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2434,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2560,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2686,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2812,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2938,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 3064,
+              "n_test": 36,
+              "seconds": 0.0
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 3100,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3226,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3352,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3478,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3604,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3730,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3856,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3982,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 4108,
+          "n_test": 4,
+          "seconds": 0.0
+        }
+      ],
+      "seconds": 2.0
+    },
+    "momentum_21": {
+      "status": "ok",
+      "kind": "momentum",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {},
+      "grid": [
+        {
+          "params": {},
+          "dev_score": 0.037232550316489726,
+          "dev_mean_ic": 0.01765616561891733,
+          "fold_log": [
+            {
+              "refit": 1300,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1426,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1552,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1678,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1804,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1930,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2056,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2182,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2308,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2434,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2560,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2686,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2812,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2938,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 3064,
+              "n_test": 36,
+              "seconds": 0.0
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 3100,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3226,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3352,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3478,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3604,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3730,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3856,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3982,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 4108,
+          "n_test": 4,
+          "seconds": 0.0
+        }
+      ],
+      "seconds": 2.1
+    },
+    "reversal_5": {
+      "status": "ok",
+      "kind": "reversal",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {},
+      "grid": [
+        {
+          "params": {},
+          "dev_score": -0.015557283253353725,
+          "dev_mean_ic": -0.007214415125563113,
+          "fold_log": [
+            {
+              "refit": 1300,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1426,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1552,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1678,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1804,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 1930,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2056,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2182,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2308,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2434,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2560,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2686,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2812,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 2938,
+              "n_test": 126,
+              "seconds": 0.0
+            },
+            {
+              "refit": 3064,
+              "n_test": 36,
+              "seconds": 0.0
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 3100,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3226,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3352,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3478,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3604,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3730,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3856,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 3982,
+          "n_test": 126,
+          "seconds": 0.0
+        },
+        {
+          "refit": 4108,
+          "n_test": 4,
+          "seconds": 0.0
+        }
+      ],
+      "seconds": 2.0
+    },
+    "ridge": {
+      "status": "ok",
+      "kind": "ridge",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {
+        "alpha": 100.0
+      },
+      "grid": [
+        {
+          "params": {
+            "alpha": 100.0
+          },
+          "dev_score": -0.04500211474421222,
+          "dev_mean_ic": -0.019631455505791783,
+          "fold_log": [
+            {
+              "refit": 1300,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 1426,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 1552,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 1678,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 1804,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 1930,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 2056,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 2182,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 2308,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2434,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2560,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2686,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2812,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2938,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 3064,
+              "n_test": 36,
+              "seconds": 0.05
+            }
+          ]
+        },
+        {
+          "params": {
+            "alpha": 1000.0
+          },
+          "dev_score": -0.06469572897575175,
+          "dev_mean_ic": -0.028510878517997152,
+          "fold_log": [
+            {
+              "refit": 1300,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 1426,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 1552,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 1678,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 1804,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 1930,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 2056,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 2182,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 2308,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 2434,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2560,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2686,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2812,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2938,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 3064,
+              "n_test": 36,
+              "seconds": 0.05
+            }
+          ]
+        },
+        {
+          "params": {
+            "alpha": 10000.0
+          },
+          "dev_score": -0.08274376189396722,
+          "dev_mean_ic": -0.037405869604954275,
+          "fold_log": [
+            {
+              "refit": 1300,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 1426,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 1552,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 1678,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 1804,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 1930,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 2056,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 2182,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 2308,
+              "n_test": 126,
+              "seconds": 0.03
+            },
+            {
+              "refit": 2434,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2560,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2686,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2812,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 2938,
+              "n_test": 126,
+              "seconds": 0.04
+            },
+            {
+              "refit": 3064,
+              "n_test": 36,
+              "seconds": 0.05
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 3100,
+          "n_test": 126,
+          "seconds": 0.05
+        },
+        {
+          "refit": 3226,
+          "n_test": 126,
+          "seconds": 0.05
+        },
+        {
+          "refit": 3352,
+          "n_test": 126,
+          "seconds": 0.05
+        },
+        {
+          "refit": 3478,
+          "n_test": 126,
+          "seconds": 0.05
+        },
+        {
+          "refit": 3604,
+          "n_test": 126,
+          "seconds": 0.06
+        },
+        {
+          "refit": 3730,
+          "n_test": 126,
+          "seconds": 0.07
+        },
+        {
+          "refit": 3856,
+          "n_test": 126,
+          "seconds": 0.06
+        },
+        {
+          "refit": 3982,
+          "n_test": 126,
+          "seconds": 0.06
+        },
+        {
+          "refit": 4108,
+          "n_test": 4,
+          "seconds": 0.07
+        }
+      ],
+      "seconds": 5.0
+    },
+    "ridge_own": {
+      "status": "ok",
+      "kind": "ridge",
+      "level": "asset",
+      "features": "own",
+      "selected_params": {
+        "alpha": 100.0
+      },
+      "grid": [
+        {
+          "params": {
+            "alpha": 100.0
+          },
+          "dev_score": -0.03923257043163583,
+          "dev_mean_ic": -0.017369033152828818,
+          "fold_log": [
+            {
+              "refit": 1300,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 1426,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1552,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1678,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1804,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1930,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2056,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2182,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2308,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 2434,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2560,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2686,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2812,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2938,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 3064,
+              "n_test": 36,
+              "seconds": 0.02
+            }
+          ]
+        },
+        {
+          "params": {
+            "alpha": 1000.0
+          },
+          "dev_score": -0.061345242544777995,
+          "dev_mean_ic": -0.027588838681577094,
+          "fold_log": [
+            {
+              "refit": 1300,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1426,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1552,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1678,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1804,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1930,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 2056,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2182,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2308,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2434,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2560,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2686,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2812,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2938,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 3064,
+              "n_test": 36,
+              "seconds": 0.03
+            }
+          ]
+        },
+        {
+          "params": {
+            "alpha": 10000.0
+          },
+          "dev_score": -0.06979386312388602,
+          "dev_mean_ic": -0.032174705007085275,
+          "fold_log": [
+            {
+              "refit": 1300,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1426,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1552,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1678,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1804,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 1930,
+              "n_test": 126,
+              "seconds": 0.01
+            },
+            {
+              "refit": 2056,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2182,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2308,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2434,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2560,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2686,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2812,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 2938,
+              "n_test": 126,
+              "seconds": 0.02
+            },
+            {
+              "refit": 3064,
+              "n_test": 36,
+              "seconds": 0.02
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 3100,
+          "n_test": 126,
+          "seconds": 0.02
+        },
+        {
+          "refit": 3226,
+          "n_test": 126,
+          "seconds": 0.02
+        },
+        {
+          "refit": 3352,
+          "n_test": 126,
+          "seconds": 0.03
+        },
+        {
+          "refit": 3478,
+          "n_test": 126,
+          "seconds": 0.03
+        },
+        {
+          "refit": 3604,
+          "n_test": 126,
+          "seconds": 0.03
+        },
+        {
+          "refit": 3730,
+          "n_test": 126,
+          "seconds": 0.03
+        },
+        {
+          "refit": 3856,
+          "n_test": 126,
+          "seconds": 0.03
+        },
+        {
+          "refit": 3982,
+          "n_test": 126,
+          "seconds": 0.03
+        },
+        {
+          "refit": 4108,
+          "n_test": 4,
+          "seconds": 0.03
+        }
+      ],
+      "seconds": 4.0
+    },
+    "lgbm": {
+      "status": "ok",
+      "kind": "lgbm",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {
+        "n_estimators": 200,
+        "learning_rate": 0.03,
+        "num_leaves": 7,
+        "min_child_samples": 300
+      },
+      "grid": [
+        {
+          "params": {
+            "n_estimators": 200,
+            "learning_rate": 0.03,
+            "num_leaves": 7,
+            "min_child_samples": 300
+          },
+          "dev_score": -0.0049847515955582225,
+          "dev_mean_ic": -0.002107740556346744,
+          "fold_log": [
+            {
+              "refit": 1300,
+              "n_test": 126,
+              "seconds": 1.14
+            },
+            {
+              "refit": 1426,
+              "n_test": 126,
+              "seconds": 1.1
+            },
+            {
+              "refit": 1552,
+              "n_test": 126,
+              "seconds": 1.17
+            },
+            {
+              "refit": 1678,
+              "n_test": 126,
+              "seconds": 1.15
+            },
+            {
+              "refit": 1804,
+              "n_test": 126,
+              "seconds": 1.15
+            },
+            {
+              "refit": 1930,
+              "n_test": 126,
+              "seconds": 1.16
+            },
+            {
+              "refit": 2056,
+              "n_test": 126,
+              "seconds": 1.19
+            },
+            {
+              "refit": 2182,
+              "n_test": 126,
+              "seconds": 1.17
+            },
+            {
+              "refit": 2308,
+              "n_test": 126,
+              "seconds": 1.11
+            },
+            {
+              "refit": 2434,
+              "n_test": 126,
+              "seconds": 1.2
+            },
+            {
+              "refit": 2560,
+              "n_test": 126,
+              "seconds": 1.19
+            },
+            {
+              "refit": 2686,
+              "n_test": 126,
+              "seconds": 1.19
+            },
+            {
+              "refit": 2812,
+              "n_test": 126,
+              "seconds": 1.0
+            },
+            {
+              "refit": 2938,
+              "n_test": 126,
+              "seconds": 1.33
+            },
+            {
+              "refit": 3064,
+              "n_test": 36,
+              "seconds": 1.27
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 3100,
+          "n_test": 126,
+          "seconds": 1.26
+        },
+        {
+          "refit": 3226,
+          "n_test": 126,
+          "seconds": 1.34
+        },
+        {
+          "refit": 3352,
+          "n_test": 126,
+          "seconds": 1.27
+        },
+        {
+          "refit": 3478,
+          "n_test": 126,
+          "seconds": 1.3
+        },
+        {
+          "refit": 3604,
+          "n_test": 126,
+          "seconds": 1.22
+        },
+        {
+          "refit": 3730,
+          "n_test": 126,
+          "seconds": 1.27
+        },
+        {
+          "refit": 3856,
+          "n_test": 126,
+          "seconds": 1.38
+        },
+        {
+          "refit": 3982,
+          "n_test": 126,
+          "seconds": 1.27
+        },
+        {
+          "refit": 4108,
+          "n_test": 4,
+          "seconds": 1.38
+        }
+      ],
+      "seconds": 31.2
+    },
+    "lstm": {
+      "status": "ok",
+      "kind": "lstm",
+      "level": "asset",
+      "features": "all",
+      "selected_params": {
+        "window": 20,
+        "hidden": 16,
+        "dropout": 0.2,
+        "max_epochs": 12,
+        "patience": 3,
+        "max_samples": 30000,
+        "val_len": 126
+      },
+      "grid": [
+        {
+          "params": {
+            "window": 20,
+            "hidden": 16,
+            "dropout": 0.2,
+            "max_epochs": 12,
+            "patience": 3,
+            "max_samples": 30000,
+            "val_len": 126
+          },
+          "dev_score": -0.07893549155801,
+          "dev_mean_ic": -0.030450510660146615,
+          "fold_log": [
+            {
+              "refit": 1300,
+              "n_test": 126,
+              "seconds": 1.97,
+              "epochs": [
+                6
+              ]
+            },
+            {
+              "refit": 1426,
+              "n_test": 126,
+              "seconds": 1.43,
+              "epochs": [
+                8
+              ]
+            },
+            {
+              "refit": 1552,
+              "n_test": 126,
+              "seconds": 1.87,
+              "epochs": [
+                10
+              ]
+            },
+            {
+              "refit": 1678,
+              "n_test": 126,
+              "seconds": 1.69,
+              "epochs": [
+                8
+              ]
+            },
+            {
+              "refit": 1804,
+              "n_test": 126,
+              "seconds": 1.95,
+              "epochs": [
+                7
+              ]
+            },
+            {
+              "refit": 1930,
+              "n_test": 126,
+              "seconds": 3.65,
+              "epochs": [
+                12
+              ]
+            },
+            {
+              "refit": 2056,
+              "n_test": 126,
+              "seconds": 1.59,
+              "epochs": [
+                5
+              ]
+            },
+            {
+              "refit": 2182,
+              "n_test": 126,
+              "seconds": 3.98,
+              "epochs": [
+                12
+              ]
+            },
+            {
+              "refit": 2308,
+              "n_test": 126,
+              "seconds": 1.36,
+              "epochs": [
+                4
+              ]
+            },
+            {
+              "refit": 2434,
+              "n_test": 126,
+              "seconds": 2.66,
+              "epochs": [
+                8
+              ]
+            },
+            {
+              "refit": 2560,
+              "n_test": 126,
+              "seconds": 2.16,
+              "epochs": [
+                5
+              ]
+            },
+            {
+              "refit": 2686,
+              "n_test": 126,
+              "seconds": 3.07,
+              "epochs": [
+                7
+              ]
+            },
+            {
+              "refit": 2812,
+              "n_test": 126,
+              "seconds": 3.0,
+              "epochs": [
+                7
+              ]
+            },
+            {
+              "refit": 2938,
+              "n_test": 126,
+              "seconds": 5.23,
+              "epochs": [
+                12
+              ]
+            },
+            {
+              "refit": 3064,
+              "n_test": 36,
+              "seconds": 2.53,
+              "epochs": [
+                6
+              ]
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 3100,
+          "n_test": 126,
+          "seconds": 2.72,
+          "epochs": [
+            6
+          ]
+        },
+        {
+          "refit": 3226,
+          "n_test": 126,
+          "seconds": 5.52,
+          "epochs": [
+            12
+          ]
+        },
+        {
+          "refit": 3352,
+          "n_test": 126,
+          "seconds": 3.81,
+          "epochs": [
+            8
+          ]
+        },
+        {
+          "refit": 3478,
+          "n_test": 126,
+          "seconds": 3.03,
+          "epochs": [
+            6
+          ]
+        },
+        {
+          "refit": 3604,
+          "n_test": 126,
+          "seconds": 6.2,
+          "epochs": [
+            12
+          ]
+        },
+        {
+          "refit": 3730,
+          "n_test": 126,
+          "seconds": 3.97,
+          "epochs": [
+            7
+          ]
+        },
+        {
+          "refit": 3856,
+          "n_test": 126,
+          "seconds": 6.65,
+          "epochs": [
+            12
+          ]
+        },
+        {
+          "refit": 3982,
+          "n_test": 126,
+          "seconds": 6.84,
+          "epochs": [
+            12
+          ]
+        },
+        {
+          "refit": 4108,
+          "n_test": 4,
+          "seconds": 4.26,
+          "epochs": [
+            7
+          ]
+        }
+      ],
+      "seconds": 84.4
+    },
+    "ens_equal": {
+      "status": "ok",
+      "kind": "ensemble",
+      "level": "asset",
+      "scheme": "equal",
+      "members": [
+        "ridge",
+        "lgbm",
+        "lstm"
+      ],
+      "member_rule": "fixed",
+      "static_weights": [
+        0.3333,
+        0.3333,
+        0.3333
+      ],
+      "regime_weights": {
+        "high": [
+          0.1667,
+          0.6667,
+          0.1667
+        ],
+        "mid": [
+          0.3333,
+          0.3333,
+          0.3333
+        ],
+        "low": [
+          0.5069,
+          0.3265,
+          0.1667
+        ]
+      },
+      "member_scales": [
+        [
+          0.0015362001100579499,
+          0.006796153871310122
+        ],
+        [
+          0.001961864666761688,
+          0.0066457121089537495
+        ],
+        [
+          0.0021552850927943927,
+          0.006313240303672346
+        ]
+      ],
+      "note": "weights/scales estimated on development dates only; development-period ensemble metrics are in-sample for the weights"
+    },
+    "ens_static_ic": {
+      "status": "ok",
+      "kind": "ensemble",
+      "level": "asset",
+      "scheme": "static_ic",
+      "members": [
+        "ridge",
+        "lgbm",
+        "lstm"
+      ],
+      "member_rule": "fixed",
+      "static_weights": [
+        0.3333,
+        0.3333,
+        0.3333
+      ],
+      "regime_weights": {
+        "high": [
+          0.1667,
+          0.6667,
+          0.1667
+        ],
+        "mid": [
+          0.3333,
+          0.3333,
+          0.3333
+        ],
+        "low": [
+          0.5069,
+          0.3265,
+          0.1667
+        ]
+      },
+      "member_scales": [
+        [
+          0.0015362001100579499,
+          0.006796153871310122
+        ],
+        [
+          0.001961864666761688,
+          0.0066457121089537495
+        ],
+        [
+          0.0021552850927943927,
+          0.006313240303672346
+        ]
+      ],
+      "note": "weights/scales estimated on development dates only; development-period ensemble metrics are in-sample for the weights"
+    },
+    "ens_regime": {
+      "status": "ok",
+      "kind": "ensemble",
+      "level": "asset",
+      "scheme": "regime",
+      "members": [
+        "ridge",
+        "lgbm",
+        "lstm"
+      ],
+      "member_rule": "fixed",
+      "static_weights": [
+        0.3333,
+        0.3333,
+        0.3333
+      ],
+      "regime_weights": {
+        "high": [
+          0.1667,
+          0.6667,
+          0.1667
+        ],
+        "mid": [
+          0.3333,
+          0.3333,
+          0.3333
+        ],
+        "low": [
+          0.5069,
+          0.3265,
+          0.1667
+        ]
+      },
+      "member_scales": [
+        [
+          0.0015362001100579499,
+          0.006796153871310122
+        ],
+        [
+          0.001961864666761688,
+          0.0066457121089537495
+        ],
+        [
+          0.0021552850927943927,
+          0.006313240303672346
+        ]
+      ],
+      "note": "weights/scales estimated on development dates only; development-period ensemble metrics are in-sample for the weights"
+    },
+    "ens_online": {
+      "status": "ok",
+      "kind": "ensemble",
+      "level": "asset",
+      "scheme": "online",
+      "members": [
+        "ridge",
+        "lgbm",
+        "lstm"
+      ],
+      "member_rule": "fixed",
+      "static_weights": [
+        0.3333,
+        0.3333,
+        0.3333
+      ],
+      "regime_weights": {
+        "high": [
+          0.1667,
+          0.6667,
+          0.1667
+        ],
+        "mid": [
+          0.3333,
+          0.3333,
+          0.3333
+        ],
+        "low": [
+          0.5069,
+          0.3265,
+          0.1667
+        ]
+      },
+      "member_scales": [
+        [
+          0.0015362001100579499,
+          0.006796153871310122
+        ],
+        [
+          0.001961864666761688,
+          0.0066457121089537495
+        ],
+        [
+          0.0021552850927943927,
+          0.006313240303672346
+        ]
+      ],
+      "note": "weights/scales estimated on development dates only; development-period ensemble metrics are in-sample for the weights"
+    }
+  },
+  "total_seconds": 146.8
+}

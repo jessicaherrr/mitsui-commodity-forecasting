@@ -1,0 +1,77 @@
+2026-10-09 03:29:09,217 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:29:10,387 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:29:10,524 | INFO    | commodity_research.experiments.runner | dataset=mitsui synthetic=False dates=1961 assets=106 targets=424 | dev folds=7 holdout folds=4
+2026-10-09 03:29:12,311 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:29:13,477 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:29:13,906 | INFO    | commodity_research.experiments.runner | hist_mean              dev  params={} score=0.0921 meanIC=0.0269
+2026-10-09 03:29:14,032 | INFO    | commodity_research.experiments.runner | hist_mean              done in 2.0s (selected {})
+2026-10-09 03:29:15,932 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:29:17,063 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:29:17,459 | INFO    | commodity_research.experiments.runner | momentum_21            dev  params={} score=-0.0179 meanIC=-0.0050
+2026-10-09 03:29:17,573 | INFO    | commodity_research.experiments.runner | momentum_21            done in 1.9s (selected {})
+2026-10-09 03:29:19,455 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:29:20,585 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:29:20,986 | INFO    | commodity_research.experiments.runner | reversal_5             dev  params={} score=0.0764 meanIC=0.0220
+2026-10-09 03:29:21,100 | INFO    | commodity_research.experiments.runner | reversal_5             done in 1.9s (selected {})
+2026-10-09 03:29:22,981 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:29:24,112 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:29:27,259 | INFO    | commodity_research.experiments.runner | ridge                  dev  params={'alpha': 1000.0} score=0.0447 meanIC=0.0112
+2026-10-09 03:29:30,412 | INFO    | commodity_research.experiments.runner | ridge                  dev  params={'alpha': 100000.0} score=0.0187 meanIC=0.0049
+2026-10-09 03:29:33,495 | INFO    | commodity_research.experiments.runner | ridge                  dev  params={'alpha': 1000000.0} score=-0.0312 meanIC=-0.0080
+2026-10-09 03:29:36,705 | INFO    | commodity_research.experiments.runner | ridge                  done in 13.9s (selected {'alpha': 1000.0})
+2026-10-09 03:29:38,855 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:29:40,000 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:29:41,545 | INFO    | commodity_research.experiments.runner | ridge_own              dev  params={'alpha': 1000.0} score=-0.0547 meanIC=-0.0142
+2026-10-09 03:29:42,971 | INFO    | commodity_research.experiments.runner | ridge_own              dev  params={'alpha': 100000.0} score=-0.0464 meanIC=-0.0117
+2026-10-09 03:29:44,414 | INFO    | commodity_research.experiments.runner | ridge_own              dev  params={'alpha': 1000000.0} score=-0.0540 meanIC=-0.0139
+2026-10-09 03:29:45,741 | INFO    | commodity_research.experiments.runner | ridge_own              done in 7.1s (selected {'alpha': 100000.0})
+2026-10-09 03:29:47,624 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:29:48,773 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:29:51,908 | INFO    | commodity_research.experiments.runner | ridge_rawlabel         dev  params={'alpha': 1000.0, 'label_mode': 'raw'} score=-0.0859 meanIC=-0.0248
+2026-10-09 03:29:54,883 | INFO    | commodity_research.experiments.runner | ridge_rawlabel         dev  params={'alpha': 100000.0, 'label_mode': 'raw'} score=-0.1038 meanIC=-0.0306
+2026-10-09 03:29:57,792 | INFO    | commodity_research.experiments.runner | ridge_rawlabel         dev  params={'alpha': 1000000.0, 'label_mode': 'raw'} score=-0.1299 meanIC=-0.0382
+2026-10-09 03:30:00,919 | INFO    | commodity_research.experiments.runner | ridge_rawlabel         done in 13.5s (selected {'alpha': 1000.0, 'label_mode': 'raw'})
+2026-10-09 03:30:03,060 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:30:04,178 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:30:45,280 | INFO    | commodity_research.experiments.runner | lgbm                   dev  params={'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 15, 'min_child_samples': 1000} score=-0.0565 meanIC=-0.0129
+2026-10-09 03:31:12,143 | INFO    | commodity_research.experiments.runner | lgbm                   dev  params={'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 7, 'min_child_samples': 3000} score=-0.0374 meanIC=-0.0086
+2026-10-09 03:31:33,885 | INFO    | commodity_research.experiments.runner | lgbm                   done in 91.0s (selected {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 7, 'min_child_samples': 3000})
+2026-10-09 03:31:36,133 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:31:37,248 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:32:07,251 | INFO    | commodity_research.experiments.runner | lgbm_own               dev  params={'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 15, 'min_child_samples': 1000} score=-0.1017 meanIC=-0.0215
+2026-10-09 03:32:25,982 | INFO    | commodity_research.experiments.runner | lgbm_own               dev  params={'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 7, 'min_child_samples': 3000} score=-0.0806 meanIC=-0.0176
+2026-10-09 03:32:39,999 | INFO    | commodity_research.experiments.runner | lgbm_own               done in 64.1s (selected {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 7, 'min_child_samples': 3000})
+2026-10-09 03:32:41,873 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:32:43,013 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:33:44,789 | INFO    | commodity_research.experiments.runner | lstm                   dev  params={'window': 20, 'hidden': 32, 'dropout': 0.2, 'lr': 0.001, 'batch_size': 512, 'max_epochs': 12, 'patience': 3, 'max_samples': 50000, 'val_len': 126, 'n_seeds': 1} score=0.0439 meanIC=0.0106
+2026-10-09 03:34:25,497 | INFO    | commodity_research.experiments.runner | lstm                   done in 103.8s (selected {'window': 20, 'hidden': 32, 'dropout': 0.2, 'lr': 0.001, 'batch_size': 512, 'max_epochs': 12, 'patience': 3, 'max_samples': 50000, 'val_len': 126, 'n_seeds': 1})
+2026-10-09 03:34:28,239 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:34:29,379 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:34:37,987 | INFO    | commodity_research.experiments.runner | ridge_direct_pooled    dev  params={'alpha': 1000.0, 'pooled': True} score=-0.0248 meanIC=-0.0059
+2026-10-09 03:34:46,394 | INFO    | commodity_research.experiments.runner | ridge_direct_pooled    dev  params={'alpha': 100000.0, 'pooled': True} score=-0.0072 meanIC=-0.0017
+2026-10-09 03:34:52,558 | INFO    | commodity_research.experiments.runner | ridge_direct_pooled    done in 24.5s (selected {'alpha': 100000.0, 'pooled': True})
+2026-10-09 03:34:54,697 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:34:55,807 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:35:04,455 | INFO    | commodity_research.experiments.runner | ridge_direct_target    dev  params={'alpha': 100.0, 'pooled': False} score=-0.0337 meanIC=-0.0051
+2026-10-09 03:35:12,863 | INFO    | commodity_research.experiments.runner | ridge_direct_target    dev  params={'alpha': 1000.0, 'pooled': False} score=-0.0479 meanIC=-0.0077
+2026-10-09 03:35:19,019 | INFO    | commodity_research.experiments.runner | ridge_direct_target    done in 24.5s (selected {'alpha': 100.0, 'pooled': False})
+2026-10-09 03:35:20,129 | INFO    | commodity_research.experiments.runner | ensemble ens_equal          members=['ridge', 'lgbm', 'lstm'] static w=[0.424 0.167 0.409]
+2026-10-09 03:35:20,292 | INFO    | commodity_research.experiments.runner | ensemble ens_static_ic      members=['ridge', 'lgbm', 'lstm'] static w=[0.424 0.167 0.409]
+2026-10-09 03:35:20,461 | INFO    | commodity_research.experiments.runner | ensemble ens_regime         members=['ridge', 'lgbm', 'lstm'] static w=[0.424 0.167 0.409]
+2026-10-09 03:35:20,666 | INFO    | commodity_research.experiments.runner | ensemble ens_online         members=['ridge', 'lgbm', 'lstm'] static w=[0.424 0.167 0.409]
+2026-10-09 03:35:21,350 | INFO    | commodity_research.experiments.runner | ensemble ens_best_equal     members=['hist_mean', 'reversal_5', 'ridge', 'lstm'] static w=[0.315 0.281 0.204 0.2  ]
+2026-10-09 03:35:21,530 | INFO    | commodity_research.experiments.runner | ensemble ens_best_regime    members=['hist_mean', 'reversal_5', 'ridge', 'lstm'] static w=[0.315 0.281 0.204 0.2  ]
+2026-10-09 03:35:21,535 | INFO    | commodity_research.experiments.runner | training finished in 6.2 min -> ./results/fast
+2026-10-09 03:35:21,775 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:35:22,894 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:35:23,267 | INFO    | commodity_research.experiments.evaluate | evaluating 17 models on 1331 OOS dates x 424 targets
+2026-10-09 03:36:14,019 | INFO    | commodity_research.experiments.evaluate | evaluation finished in 52.5s -> ./results/fast/metrics
+2026-10-09 03:36:14,694 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 03:36:15,816 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 03:36:15,959 | WARNING | matplotlib.font_manager | findfont: Failed to find font weight semibold for DejaVu Sans, now using 700.
+2026-10-09 03:36:18,288 | INFO    | commodity_research.experiments.report | report written to ./reports/fast
+2026-10-09 03:36:18,290 | INFO    | commodity_research | all stages finished in 7.2 min
+2026-10-09 10:07:07,582 | WARNING | commodity_research.data.mitsui | 1 assets observed on <50% of dates: ['US_Stock_GOLD_adj_close']
+2026-10-09 10:07:08,157 | INFO    | commodity_research.features.engineering | built 38 features for 106 assets x 1961 dates
+2026-10-09 10:07:08,357 | INFO    | commodity_research.experiments.evaluate | evaluating 17 models on 1331 OOS dates x 424 targets
+2026-10-09 10:07:35,151 | INFO    | commodity_research.experiments.evaluate | evaluation finished in 27.7s -> ./results/fast/metrics

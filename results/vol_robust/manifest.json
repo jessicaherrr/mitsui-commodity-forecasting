@@ -1,0 +1,1272 @@
+{
+  "profile": "vol_robust",
+  "config_hash": "88a639c04bb9",
+  "seed": 42,
+  "dataset": "mitsui",
+  "is_synthetic": false,
+  "provenance": "Kaggle MITSUI&CO. Commodity Prediction Challenge (2025) training files; date_id is an anonymised trading-date index (calendar dates not provided).",
+  "data_fingerprint": {
+    "train.csv": "6b0cb8794921494c",
+    "train_labels.csv": "65c89598c5d9a45c",
+    "target_pairs.csv": "06de5c4a9babcd0a"
+  },
+  "split": {
+    "first_train": 130,
+    "dev_start": 630,
+    "holdout_start": 1461,
+    "end": 1961,
+    "refit_every": 42,
+    "window": null
+  },
+  "n_dates": 1961,
+  "n_assets": 106,
+  "n_targets": 424,
+  "horizons": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "gap": 1,
+  "feature_names": [
+    "ret_1_z",
+    "ret_1_lag1_z",
+    "mom_5_z",
+    "mom_21_z",
+    "mom_63_z",
+    "mom_126_21_z",
+    "madev_20_z",
+    "madev_60_z",
+    "trend_eff_63",
+    "log_vol_ewma",
+    "log_vol_ratio_21_63",
+    "log_downside_ratio_63",
+    "skew_63",
+    "exkurt_63",
+    "expo_EQ_1d",
+    "expo_USD_1d",
+    "expo_METAL_1d",
+    "expo_GOLD_1d",
+    "expo_RATES_1d",
+    "expo_ENERGY_1d",
+    "beta_home_126",
+    "corr_home_63",
+    "corr_eq_63",
+    "home_expo_5d_z",
+    "log_vol_rel_home",
+    "fac_EQ_5d_z",
+    "fac_USD_5d_z",
+    "fac_METAL_5d_z",
+    "xs_rank_mom_5",
+    "xs_rank_mom_21",
+    "xs_rank_mom_63",
+    "grp_dev_mom_21",
+    "resid_mom_21_z",
+    "xs_rank_vol",
+    "reg_eq_vol_pct",
+    "reg_eq_vol_chg",
+    "reg_eq_trend",
+    "reg_xcorr_63"
+  ],
+  "feature_groups": [
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "own",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "cross",
+    "relative",
+    "relative",
+    "relative",
+    "relative",
+    "relative",
+    "relative",
+    "regime",
+    "regime",
+    "regime",
+    "regime"
+  ],
+  "models": {
+    "tgbm_R": {
+      "status": "ok",
+      "kind": "target_pooled",
+      "level": "target",
+      "features": "all",
+      "selected_params": {
+        "groups": [
+          "R"
+        ]
+      },
+      "grid": [
+        {
+          "params": {
+            "groups": [
+              "R"
+            ]
+          },
+          "dev_score": -0.01713294522715905,
+          "dev_mean_ic": -0.00337068196167345,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 42,
+              "seconds": 3.17
+            },
+            {
+              "refit": 672,
+              "n_test": 42,
+              "seconds": 1.3
+            },
+            {
+              "refit": 714,
+              "n_test": 42,
+              "seconds": 1.33
+            },
+            {
+              "refit": 756,
+              "n_test": 42,
+              "seconds": 1.54
+            },
+            {
+              "refit": 798,
+              "n_test": 42,
+              "seconds": 2.07
+            },
+            {
+              "refit": 840,
+              "n_test": 42,
+              "seconds": 1.97
+            },
+            {
+              "refit": 882,
+              "n_test": 42,
+              "seconds": 1.28
+            },
+            {
+              "refit": 924,
+              "n_test": 42,
+              "seconds": 1.35
+            },
+            {
+              "refit": 966,
+              "n_test": 42,
+              "seconds": 1.38
+            },
+            {
+              "refit": 1008,
+              "n_test": 42,
+              "seconds": 1.32
+            },
+            {
+              "refit": 1050,
+              "n_test": 42,
+              "seconds": 1.52
+            },
+            {
+              "refit": 1092,
+              "n_test": 42,
+              "seconds": 1.43
+            },
+            {
+              "refit": 1134,
+              "n_test": 42,
+              "seconds": 1.67
+            },
+            {
+              "refit": 1176,
+              "n_test": 42,
+              "seconds": 1.49
+            },
+            {
+              "refit": 1218,
+              "n_test": 42,
+              "seconds": 1.56
+            },
+            {
+              "refit": 1260,
+              "n_test": 42,
+              "seconds": 1.52
+            },
+            {
+              "refit": 1302,
+              "n_test": 42,
+              "seconds": 1.63
+            },
+            {
+              "refit": 1344,
+              "n_test": 42,
+              "seconds": 1.57
+            },
+            {
+              "refit": 1386,
+              "n_test": 42,
+              "seconds": 1.58
+            },
+            {
+              "refit": 1428,
+              "n_test": 33,
+              "seconds": 1.71
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 42,
+          "seconds": 1.72
+        },
+        {
+          "refit": 1503,
+          "n_test": 42,
+          "seconds": 1.71
+        },
+        {
+          "refit": 1545,
+          "n_test": 42,
+          "seconds": 1.73
+        },
+        {
+          "refit": 1587,
+          "n_test": 42,
+          "seconds": 1.8
+        },
+        {
+          "refit": 1629,
+          "n_test": 42,
+          "seconds": 1.79
+        },
+        {
+          "refit": 1671,
+          "n_test": 42,
+          "seconds": 1.79
+        },
+        {
+          "refit": 1713,
+          "n_test": 42,
+          "seconds": 1.74
+        },
+        {
+          "refit": 1755,
+          "n_test": 42,
+          "seconds": 1.74
+        },
+        {
+          "refit": 1797,
+          "n_test": 42,
+          "seconds": 1.85
+        },
+        {
+          "refit": 1839,
+          "n_test": 42,
+          "seconds": 1.82
+        },
+        {
+          "refit": 1881,
+          "n_test": 42,
+          "seconds": 2.11
+        },
+        {
+          "refit": 1923,
+          "n_test": 38,
+          "seconds": 1.9
+        }
+      ],
+      "seconds": 55.0
+    },
+    "tgbm_RV": {
+      "status": "ok",
+      "kind": "target_pooled",
+      "level": "target",
+      "features": "all",
+      "selected_params": {
+        "groups": [
+          "R",
+          "Vn",
+          "Vs"
+        ]
+      },
+      "grid": [
+        {
+          "params": {
+            "groups": [
+              "R",
+              "Vn",
+              "Vs"
+            ]
+          },
+          "dev_score": 0.06440572353547996,
+          "dev_mean_ic": 0.01418652691557611,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 42,
+              "seconds": 3.31
+            },
+            {
+              "refit": 672,
+              "n_test": 42,
+              "seconds": 1.42
+            },
+            {
+              "refit": 714,
+              "n_test": 42,
+              "seconds": 1.43
+            },
+            {
+              "refit": 756,
+              "n_test": 42,
+              "seconds": 1.52
+            },
+            {
+              "refit": 798,
+              "n_test": 42,
+              "seconds": 1.53
+            },
+            {
+              "refit": 840,
+              "n_test": 42,
+              "seconds": 1.59
+            },
+            {
+              "refit": 882,
+              "n_test": 42,
+              "seconds": 1.68
+            },
+            {
+              "refit": 924,
+              "n_test": 42,
+              "seconds": 1.7
+            },
+            {
+              "refit": 966,
+              "n_test": 42,
+              "seconds": 1.78
+            },
+            {
+              "refit": 1008,
+              "n_test": 42,
+              "seconds": 1.89
+            },
+            {
+              "refit": 1050,
+              "n_test": 42,
+              "seconds": 2.01
+            },
+            {
+              "refit": 1092,
+              "n_test": 42,
+              "seconds": 2.06
+            },
+            {
+              "refit": 1134,
+              "n_test": 42,
+              "seconds": 2.07
+            },
+            {
+              "refit": 1176,
+              "n_test": 42,
+              "seconds": 2.11
+            },
+            {
+              "refit": 1218,
+              "n_test": 42,
+              "seconds": 2.34
+            },
+            {
+              "refit": 1260,
+              "n_test": 42,
+              "seconds": 2.2
+            },
+            {
+              "refit": 1302,
+              "n_test": 42,
+              "seconds": 2.25
+            },
+            {
+              "refit": 1344,
+              "n_test": 42,
+              "seconds": 2.6
+            },
+            {
+              "refit": 1386,
+              "n_test": 42,
+              "seconds": 2.3
+            },
+            {
+              "refit": 1428,
+              "n_test": 33,
+              "seconds": 2.45
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 42,
+          "seconds": 2.52
+        },
+        {
+          "refit": 1503,
+          "n_test": 42,
+          "seconds": 2.62
+        },
+        {
+          "refit": 1545,
+          "n_test": 42,
+          "seconds": 2.57
+        },
+        {
+          "refit": 1587,
+          "n_test": 42,
+          "seconds": 2.45
+        },
+        {
+          "refit": 1629,
+          "n_test": 42,
+          "seconds": 2.71
+        },
+        {
+          "refit": 1671,
+          "n_test": 42,
+          "seconds": 2.9
+        },
+        {
+          "refit": 1713,
+          "n_test": 42,
+          "seconds": 2.94
+        },
+        {
+          "refit": 1755,
+          "n_test": 42,
+          "seconds": 2.9
+        },
+        {
+          "refit": 1797,
+          "n_test": 42,
+          "seconds": 2.88
+        },
+        {
+          "refit": 1839,
+          "n_test": 42,
+          "seconds": 3.0
+        },
+        {
+          "refit": 1881,
+          "n_test": 42,
+          "seconds": 3.23
+        },
+        {
+          "refit": 1923,
+          "n_test": 38,
+          "seconds": 3.33
+        }
+      ],
+      "seconds": 75.3
+    },
+    "tgbm_RVs": {
+      "status": "ok",
+      "kind": "target_pooled",
+      "level": "target",
+      "features": "all",
+      "selected_params": {
+        "groups": [
+          "R",
+          "Vs"
+        ]
+      },
+      "grid": [
+        {
+          "params": {
+            "groups": [
+              "R",
+              "Vs"
+            ]
+          },
+          "dev_score": 0.0678508550296775,
+          "dev_mean_ic": 0.015058011255768616,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 42,
+              "seconds": 3.46
+            },
+            {
+              "refit": 672,
+              "n_test": 42,
+              "seconds": 1.32
+            },
+            {
+              "refit": 714,
+              "n_test": 42,
+              "seconds": 1.38
+            },
+            {
+              "refit": 756,
+              "n_test": 42,
+              "seconds": 1.58
+            },
+            {
+              "refit": 798,
+              "n_test": 42,
+              "seconds": 1.8
+            },
+            {
+              "refit": 840,
+              "n_test": 42,
+              "seconds": 1.63
+            },
+            {
+              "refit": 882,
+              "n_test": 42,
+              "seconds": 1.65
+            },
+            {
+              "refit": 924,
+              "n_test": 42,
+              "seconds": 1.67
+            },
+            {
+              "refit": 966,
+              "n_test": 42,
+              "seconds": 1.75
+            },
+            {
+              "refit": 1008,
+              "n_test": 42,
+              "seconds": 1.87
+            },
+            {
+              "refit": 1050,
+              "n_test": 42,
+              "seconds": 1.95
+            },
+            {
+              "refit": 1092,
+              "n_test": 42,
+              "seconds": 1.87
+            },
+            {
+              "refit": 1134,
+              "n_test": 42,
+              "seconds": 1.91
+            },
+            {
+              "refit": 1176,
+              "n_test": 42,
+              "seconds": 2.2
+            },
+            {
+              "refit": 1218,
+              "n_test": 42,
+              "seconds": 2.49
+            },
+            {
+              "refit": 1260,
+              "n_test": 42,
+              "seconds": 2.49
+            },
+            {
+              "refit": 1302,
+              "n_test": 42,
+              "seconds": 2.23
+            },
+            {
+              "refit": 1344,
+              "n_test": 42,
+              "seconds": 2.18
+            },
+            {
+              "refit": 1386,
+              "n_test": 42,
+              "seconds": 2.24
+            },
+            {
+              "refit": 1428,
+              "n_test": 33,
+              "seconds": 2.31
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 42,
+          "seconds": 2.39
+        },
+        {
+          "refit": 1503,
+          "n_test": 42,
+          "seconds": 2.65
+        },
+        {
+          "refit": 1545,
+          "n_test": 42,
+          "seconds": 2.59
+        },
+        {
+          "refit": 1587,
+          "n_test": 42,
+          "seconds": 3.03
+        },
+        {
+          "refit": 1629,
+          "n_test": 42,
+          "seconds": 2.59
+        },
+        {
+          "refit": 1671,
+          "n_test": 42,
+          "seconds": 2.66
+        },
+        {
+          "refit": 1713,
+          "n_test": 42,
+          "seconds": 2.98
+        },
+        {
+          "refit": 1755,
+          "n_test": 42,
+          "seconds": 2.68
+        },
+        {
+          "refit": 1797,
+          "n_test": 42,
+          "seconds": 2.74
+        },
+        {
+          "refit": 1839,
+          "n_test": 42,
+          "seconds": 3.23
+        },
+        {
+          "refit": 1881,
+          "n_test": 42,
+          "seconds": 3.39
+        },
+        {
+          "refit": 1923,
+          "n_test": 38,
+          "seconds": 3.3
+        }
+      ],
+      "seconds": 75.3
+    },
+    "tgbm15_R": {
+      "status": "ok",
+      "kind": "target_pooled",
+      "level": "target",
+      "features": "all",
+      "selected_params": {
+        "groups": [
+          "R"
+        ],
+        "lgbm_params": {
+          "num_leaves": 15,
+          "min_child_samples": 1000
+        }
+      },
+      "grid": [
+        {
+          "params": {
+            "groups": [
+              "R"
+            ],
+            "lgbm_params": {
+              "num_leaves": 15,
+              "min_child_samples": 1000
+            }
+          },
+          "dev_score": -0.025989786736894414,
+          "dev_mean_ic": -0.004583189224407189,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 42,
+              "seconds": 4.55
+            },
+            {
+              "refit": 672,
+              "n_test": 42,
+              "seconds": 2.07
+            },
+            {
+              "refit": 714,
+              "n_test": 42,
+              "seconds": 2.2
+            },
+            {
+              "refit": 756,
+              "n_test": 42,
+              "seconds": 2.13
+            },
+            {
+              "refit": 798,
+              "n_test": 42,
+              "seconds": 2.21
+            },
+            {
+              "refit": 840,
+              "n_test": 42,
+              "seconds": 2.24
+            },
+            {
+              "refit": 882,
+              "n_test": 42,
+              "seconds": 2.22
+            },
+            {
+              "refit": 924,
+              "n_test": 42,
+              "seconds": 2.28
+            },
+            {
+              "refit": 966,
+              "n_test": 42,
+              "seconds": 2.29
+            },
+            {
+              "refit": 1008,
+              "n_test": 42,
+              "seconds": 2.38
+            },
+            {
+              "refit": 1050,
+              "n_test": 42,
+              "seconds": 2.37
+            },
+            {
+              "refit": 1092,
+              "n_test": 42,
+              "seconds": 2.44
+            },
+            {
+              "refit": 1134,
+              "n_test": 42,
+              "seconds": 2.45
+            },
+            {
+              "refit": 1176,
+              "n_test": 42,
+              "seconds": 2.47
+            },
+            {
+              "refit": 1218,
+              "n_test": 42,
+              "seconds": 2.54
+            },
+            {
+              "refit": 1260,
+              "n_test": 42,
+              "seconds": 2.55
+            },
+            {
+              "refit": 1302,
+              "n_test": 42,
+              "seconds": 2.6
+            },
+            {
+              "refit": 1344,
+              "n_test": 42,
+              "seconds": 2.66
+            },
+            {
+              "refit": 1386,
+              "n_test": 42,
+              "seconds": 2.66
+            },
+            {
+              "refit": 1428,
+              "n_test": 33,
+              "seconds": 2.67
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 42,
+          "seconds": 2.74
+        },
+        {
+          "refit": 1503,
+          "n_test": 42,
+          "seconds": 3.63
+        },
+        {
+          "refit": 1545,
+          "n_test": 42,
+          "seconds": 3.09
+        },
+        {
+          "refit": 1587,
+          "n_test": 42,
+          "seconds": 3.17
+        },
+        {
+          "refit": 1629,
+          "n_test": 42,
+          "seconds": 3.62
+        },
+        {
+          "refit": 1671,
+          "n_test": 42,
+          "seconds": 3.08
+        },
+        {
+          "refit": 1713,
+          "n_test": 42,
+          "seconds": 3.14
+        },
+        {
+          "refit": 1755,
+          "n_test": 42,
+          "seconds": 3.66
+        },
+        {
+          "refit": 1797,
+          "n_test": 42,
+          "seconds": 3.38
+        },
+        {
+          "refit": 1839,
+          "n_test": 42,
+          "seconds": 3.64
+        },
+        {
+          "refit": 1881,
+          "n_test": 42,
+          "seconds": 3.69
+        },
+        {
+          "refit": 1923,
+          "n_test": 38,
+          "seconds": 3.3
+        }
+      ],
+      "seconds": 91.3
+    },
+    "tgbm15_RV": {
+      "status": "ok",
+      "kind": "target_pooled",
+      "level": "target",
+      "features": "all",
+      "selected_params": {
+        "groups": [
+          "R",
+          "Vn",
+          "Vs"
+        ],
+        "lgbm_params": {
+          "num_leaves": 15,
+          "min_child_samples": 1000
+        }
+      },
+      "grid": [
+        {
+          "params": {
+            "groups": [
+              "R",
+              "Vn",
+              "Vs"
+            ],
+            "lgbm_params": {
+              "num_leaves": 15,
+              "min_child_samples": 1000
+            }
+          },
+          "dev_score": 0.0750585811714163,
+          "dev_mean_ic": 0.017259577190839107,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 42,
+              "seconds": 4.2
+            },
+            {
+              "refit": 672,
+              "n_test": 42,
+              "seconds": 2.52
+            },
+            {
+              "refit": 714,
+              "n_test": 42,
+              "seconds": 2.73
+            },
+            {
+              "refit": 756,
+              "n_test": 42,
+              "seconds": 2.67
+            },
+            {
+              "refit": 798,
+              "n_test": 42,
+              "seconds": 2.73
+            },
+            {
+              "refit": 840,
+              "n_test": 42,
+              "seconds": 2.79
+            },
+            {
+              "refit": 882,
+              "n_test": 42,
+              "seconds": 2.9
+            },
+            {
+              "refit": 924,
+              "n_test": 42,
+              "seconds": 3.14
+            },
+            {
+              "refit": 966,
+              "n_test": 42,
+              "seconds": 3.02
+            },
+            {
+              "refit": 1008,
+              "n_test": 42,
+              "seconds": 3.09
+            },
+            {
+              "refit": 1050,
+              "n_test": 42,
+              "seconds": 3.18
+            },
+            {
+              "refit": 1092,
+              "n_test": 42,
+              "seconds": 3.33
+            },
+            {
+              "refit": 1134,
+              "n_test": 42,
+              "seconds": 3.41
+            },
+            {
+              "refit": 1176,
+              "n_test": 42,
+              "seconds": 4.4
+            },
+            {
+              "refit": 1218,
+              "n_test": 42,
+              "seconds": 4.74
+            },
+            {
+              "refit": 1260,
+              "n_test": 42,
+              "seconds": 4.66
+            },
+            {
+              "refit": 1302,
+              "n_test": 42,
+              "seconds": 6.38
+            },
+            {
+              "refit": 1344,
+              "n_test": 42,
+              "seconds": 6.89
+            },
+            {
+              "refit": 1386,
+              "n_test": 42,
+              "seconds": 6.48
+            },
+            {
+              "refit": 1428,
+              "n_test": 33,
+              "seconds": 6.77
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 42,
+          "seconds": 6.73
+        },
+        {
+          "refit": 1503,
+          "n_test": 42,
+          "seconds": 5.21
+        },
+        {
+          "refit": 1545,
+          "n_test": 42,
+          "seconds": 6.37
+        },
+        {
+          "refit": 1587,
+          "n_test": 42,
+          "seconds": 6.14
+        },
+        {
+          "refit": 1629,
+          "n_test": 42,
+          "seconds": 6.49
+        },
+        {
+          "refit": 1671,
+          "n_test": 42,
+          "seconds": 6.45
+        },
+        {
+          "refit": 1713,
+          "n_test": 42,
+          "seconds": 6.29
+        },
+        {
+          "refit": 1755,
+          "n_test": 42,
+          "seconds": 6.8
+        },
+        {
+          "refit": 1797,
+          "n_test": 42,
+          "seconds": 5.17
+        },
+        {
+          "refit": 1839,
+          "n_test": 42,
+          "seconds": 7.05
+        },
+        {
+          "refit": 1881,
+          "n_test": 42,
+          "seconds": 6.83
+        },
+        {
+          "refit": 1923,
+          "n_test": 38,
+          "seconds": 6.76
+        }
+      ],
+      "seconds": 157.4
+    },
+    "tgbm15_RVs": {
+      "status": "ok",
+      "kind": "target_pooled",
+      "level": "target",
+      "features": "all",
+      "selected_params": {
+        "groups": [
+          "R",
+          "Vs"
+        ],
+        "lgbm_params": {
+          "num_leaves": 15,
+          "min_child_samples": 1000
+        }
+      },
+      "grid": [
+        {
+          "params": {
+            "groups": [
+              "R",
+              "Vs"
+            ],
+            "lgbm_params": {
+              "num_leaves": 15,
+              "min_child_samples": 1000
+            }
+          },
+          "dev_score": 0.06421743825732112,
+          "dev_mean_ic": 0.014791066141334026,
+          "fold_log": [
+            {
+              "refit": 630,
+              "n_test": 42,
+              "seconds": 6.72
+            },
+            {
+              "refit": 672,
+              "n_test": 42,
+              "seconds": 2.67
+            },
+            {
+              "refit": 714,
+              "n_test": 42,
+              "seconds": 2.84
+            },
+            {
+              "refit": 756,
+              "n_test": 42,
+              "seconds": 4.08
+            },
+            {
+              "refit": 798,
+              "n_test": 42,
+              "seconds": 4.19
+            },
+            {
+              "refit": 840,
+              "n_test": 42,
+              "seconds": 4.47
+            },
+            {
+              "refit": 882,
+              "n_test": 42,
+              "seconds": 4.92
+            },
+            {
+              "refit": 924,
+              "n_test": 42,
+              "seconds": 5.06
+            },
+            {
+              "refit": 966,
+              "n_test": 42,
+              "seconds": 5.53
+            },
+            {
+              "refit": 1008,
+              "n_test": 42,
+              "seconds": 5.21
+            },
+            {
+              "refit": 1050,
+              "n_test": 42,
+              "seconds": 5.73
+            },
+            {
+              "refit": 1092,
+              "n_test": 42,
+              "seconds": 3.61
+            },
+            {
+              "refit": 1134,
+              "n_test": 42,
+              "seconds": 3.85
+            },
+            {
+              "refit": 1176,
+              "n_test": 42,
+              "seconds": 3.8
+            },
+            {
+              "refit": 1218,
+              "n_test": 42,
+              "seconds": 3.46
+            },
+            {
+              "refit": 1260,
+              "n_test": 42,
+              "seconds": 3.29
+            },
+            {
+              "refit": 1302,
+              "n_test": 42,
+              "seconds": 3.33
+            },
+            {
+              "refit": 1344,
+              "n_test": 42,
+              "seconds": 3.53
+            },
+            {
+              "refit": 1386,
+              "n_test": 42,
+              "seconds": 3.98
+            },
+            {
+              "refit": 1428,
+              "n_test": 33,
+              "seconds": 3.83
+            }
+          ]
+        }
+      ],
+      "holdout_fold_log": [
+        {
+          "refit": 1461,
+          "n_test": 42,
+          "seconds": 3.63
+        },
+        {
+          "refit": 1503,
+          "n_test": 42,
+          "seconds": 3.77
+        },
+        {
+          "refit": 1545,
+          "n_test": 42,
+          "seconds": 4.06
+        },
+        {
+          "refit": 1587,
+          "n_test": 42,
+          "seconds": 3.71
+        },
+        {
+          "refit": 1629,
+          "n_test": 42,
+          "seconds": 4.19
+        },
+        {
+          "refit": 1671,
+          "n_test": 42,
+          "seconds": 3.74
+        },
+        {
+          "refit": 1713,
+          "n_test": 42,
+          "seconds": 3.73
+        },
+        {
+          "refit": 1755,
+          "n_test": 42,
+          "seconds": 3.89
+        },
+        {
+          "refit": 1797,
+          "n_test": 42,
+          "seconds": 4.51
+        },
+        {
+          "refit": 1839,
+          "n_test": 42,
+          "seconds": 4.3
+        },
+        {
+          "refit": 1881,
+          "n_test": 42,
+          "seconds": 5.56
+        },
+        {
+          "refit": 1923,
+          "n_test": 38,
+          "seconds": 5.01
+        }
+      ],
+      "seconds": 135.6
+    }
+  },
+  "total_seconds": 597.9
+}

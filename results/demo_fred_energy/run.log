@@ -1,0 +1,47 @@
+2026-10-09 03:18:47,361 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:18:47,374 | INFO    | commodity_research.experiments.runner | dataset=fred_energy synthetic=False dates=4112 assets=6 targets=20 | dev folds=15 holdout folds=9
+2026-10-09 03:18:50,495 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:18:51,045 | INFO    | commodity_research.experiments.runner | hist_mean              dev  params={} score=-0.0201 meanIC=-0.0100
+2026-10-09 03:18:51,060 | INFO    | commodity_research.experiments.runner | hist_mean              done in 2.0s (selected {})
+2026-10-09 03:18:54,397 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:18:54,942 | INFO    | commodity_research.experiments.runner | momentum_21            dev  params={} score=0.0372 meanIC=0.0177
+2026-10-09 03:18:54,954 | INFO    | commodity_research.experiments.runner | momentum_21            done in 2.1s (selected {})
+2026-10-09 03:18:58,201 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:18:58,757 | INFO    | commodity_research.experiments.runner | reversal_5             dev  params={} score=-0.0156 meanIC=-0.0072
+2026-10-09 03:18:58,775 | INFO    | commodity_research.experiments.runner | reversal_5             done in 2.0s (selected {})
+2026-10-09 03:19:01,957 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:19:02,983 | INFO    | commodity_research.experiments.runner | ridge                  dev  params={'alpha': 100.0} score=-0.0450 meanIC=-0.0196
+2026-10-09 03:19:03,966 | INFO    | commodity_research.experiments.runner | ridge                  dev  params={'alpha': 1000.0} score=-0.0647 meanIC=-0.0285
+2026-10-09 03:19:04,941 | INFO    | commodity_research.experiments.runner | ridge                  dev  params={'alpha': 10000.0} score=-0.0827 meanIC=-0.0374
+2026-10-09 03:19:05,468 | INFO    | commodity_research.experiments.runner | ridge                  done in 5.0s (selected {'alpha': 100.0})
+2026-10-09 03:19:08,808 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:19:09,572 | INFO    | commodity_research.experiments.runner | ridge_own              dev  params={'alpha': 100.0} score=-0.0392 meanIC=-0.0174
+2026-10-09 03:19:10,336 | INFO    | commodity_research.experiments.runner | ridge_own              dev  params={'alpha': 1000.0} score=-0.0613 meanIC=-0.0276
+2026-10-09 03:19:11,075 | INFO    | commodity_research.experiments.runner | ridge_own              dev  params={'alpha': 10000.0} score=-0.0698 meanIC=-0.0322
+2026-10-09 03:19:11,327 | INFO    | commodity_research.experiments.runner | ridge_own              done in 4.0s (selected {'alpha': 100.0})
+2026-10-09 03:19:14,498 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:19:32,510 | INFO    | commodity_research.experiments.runner | lgbm                   dev  params={'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 7, 'min_child_samples': 300} score=-0.0050 meanIC=-0.0021
+2026-10-09 03:19:44,200 | INFO    | commodity_research.experiments.runner | lgbm                   done in 31.2s (selected {'n_estimators': 200, 'learning_rate': 0.03, 'num_leaves': 7, 'min_child_samples': 300})
+2026-10-09 03:19:47,653 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:20:27,650 | INFO    | commodity_research.experiments.runner | lstm                   dev  params={'window': 20, 'hidden': 16, 'dropout': 0.2, 'max_epochs': 12, 'patience': 3, 'max_samples': 30000, 'val_len': 126} score=-0.0789 meanIC=-0.0305
+2026-10-09 03:21:10,671 | INFO    | commodity_research.experiments.runner | lstm                   done in 84.4s (selected {'window': 20, 'hidden': 16, 'dropout': 0.2, 'max_epochs': 12, 'patience': 3, 'max_samples': 30000, 'val_len': 126})
+2026-10-09 03:21:12,473 | INFO    | commodity_research.experiments.runner | ensemble ens_equal          members=['ridge', 'lgbm', 'lstm'] static w=[0.333 0.333 0.333]
+2026-10-09 03:21:12,558 | INFO    | commodity_research.experiments.runner | ensemble ens_static_ic      members=['ridge', 'lgbm', 'lstm'] static w=[0.333 0.333 0.333]
+2026-10-09 03:21:12,655 | INFO    | commodity_research.experiments.runner | ensemble ens_regime         members=['ridge', 'lgbm', 'lstm'] static w=[0.333 0.333 0.333]
+2026-10-09 03:21:12,829 | INFO    | commodity_research.experiments.runner | ensemble ens_online         members=['ridge', 'lgbm', 'lstm'] static w=[0.333 0.333 0.333]
+2026-10-09 03:21:12,829 | WARNING | commodity_research.experiments.runner | ensemble group ens_best skipped: fewer than two members (['momentum_21'])
+2026-10-09 03:21:12,831 | INFO    | commodity_research.experiments.runner | training finished in 2.4 min -> ./results/demo_fred_energy
+2026-10-09 03:21:14,044 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:21:14,072 | INFO    | commodity_research.experiments.evaluate | evaluating 11 models on 2812 OOS dates x 20 targets
+2026-10-09 03:21:42,317 | INFO    | commodity_research.experiments.evaluate | evaluation finished in 29.5s -> ./results/demo_fred_energy/metrics
+2026-10-09 03:21:44,286 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:21:44,375 | WARNING | matplotlib.font_manager | findfont: Failed to find font weight semibold for DejaVu Sans, now using 700.
+2026-10-09 03:22:27,746 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:22:27,815 | WARNING | matplotlib.font_manager | findfont: Failed to find font weight semibold for DejaVu Sans, now using 700.
+2026-10-09 03:22:29,933 | INFO    | commodity_research.experiments.report | report written to ./reports/demo_fred_energy
+2026-10-09 03:24:17,432 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:24:17,465 | INFO    | commodity_research.experiments.evaluate | evaluating 11 models on 2812 OOS dates x 20 targets
+2026-10-09 03:24:46,225 | INFO    | commodity_research.experiments.evaluate | evaluation finished in 30.1s -> ./results/demo_fred_energy/metrics
+2026-10-09 03:24:49,573 | INFO    | commodity_research.features.engineering | built 31 features for 6 assets x 4112 dates
+2026-10-09 03:24:49,652 | WARNING | matplotlib.font_manager | findfont: Failed to find font weight semibold for DejaVu Sans, now using 700.
+2026-10-09 03:24:51,951 | INFO    | commodity_research.experiments.report | report written to ./reports/demo_fred_energy

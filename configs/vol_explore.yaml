@@ -1,0 +1,31 @@
+# VOL_EXPLORE profile: POST-HOC exploratory decomposition (not pre-registered).
+# Question raised by the feature importance of tgbm_RVC: is the volatility-state gain driven by the
+# MARKET volatility state (date-level, acting through interactions) or by each TARGET's own
+# volatility state? Results are reported as exploratory only.
+name: vol_explore
+
+volatility:
+  models: [const, hv21, hv63, ewma, garch_n, garch_t, gjr_t]
+  refit_every: 21
+  min_obs: 250
+
+split:
+  refit_every: 126
+
+ensembles: []
+
+models:
+  - {name: tgbm_R,          type: target_pooled, params: {groups: [R]}}
+  - {name: tgbm_RVs,        type: target_pooled, params: {groups: [R, Vs]}}
+  - {name: tgbm_R_mktvol,   type: target_pooled, params: {groups: [R], include: [mkt_vol_pct, mkt_vol_chg]}}
+  - {name: tgbm_RVs_ownvol, type: target_pooled, params: {groups: [R, Vs], exclude: [mkt_vol_pct, mkt_vol_chg]}}
+
+evaluation:
+  bootstrap_reps: 1000
+  paired:
+    - [E1 market vol state only, tgbm_R_mktvol, tgbm_R]
+    - [E2 target-own vol state only, tgbm_RVs_ownvol, tgbm_R]
+    - [E3 market state beyond own state, tgbm_RVs, tgbm_RVs_ownvol]
+
+runtime:
+  max_minutes: 30
